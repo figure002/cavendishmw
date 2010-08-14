@@ -68,7 +68,7 @@ body {
 div#header { clear: both; }
 
 #header h1 a {
-	background: transparent url("wiki_header_logo.gif") no-repeat;
+	background: transparent url("custom_header_logo.png") no-repeat;
 }
 
 #mozilla-org a {

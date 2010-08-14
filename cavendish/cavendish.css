@@ -145,15 +145,15 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 1em 0 0.3em 0;
 }
 
-h1, h2, h3 {
+h6 { font-size: 90%;  }
+
+h1, h2 {
 	text-shadow: 1px 1px 2px #A5A5A5;
 }
 
 li h1, li h2, li h3, li h4, li h5, li h6 {
 	border: none;
 }
-
-h3 { font-size: 110%; }
 
 tt, code, pre {
 	font-family: "Droid Sans Mono", monospace, sans-serif !important;
