@@ -5,7 +5,7 @@
  * Loosely based on the cavendish style by Gabriel Wicke
  *
  * Modified by Serrano Pereira
- * Last update: Wed 20 Jan 2010 12:27:03 AM CET 
+ * Last update: Wed 20 Jan 2010 12:27:03 AM CET
  *
  * @todo document
  * @package MediaWiki
@@ -120,11 +120,11 @@ class cavendishTemplate extends QuickTemplate {
 
     <!-- <div id="mozilla-org"><a href="/wiki/Skin:Cavendish">Mozilla Skin</a></div> -->
     <?php if($this->data['sitenotice']) { ?><div id="siteNotice"><?php $this->html('sitenotice') ?></div><?php } ?>
-    
+
 	<div id="header" class="noprint">
 		<a name="top" id="contentTop"></a>
 		<h1><a href="<?php echo htmlspecialchars($this->data['nav_urls']['mainpage']['href'])?>"<?php echo $skin->tooltipAndAccesskey('p-logo') ?>></a></h1>
-		
+
 		<ul> <!-- Start of content action buttons -->
             <?php foreach($this->data['content_actions'] as $key => $tab) {
 		        echo '
@@ -157,15 +157,15 @@ class cavendishTemplate extends QuickTemplate {
 			<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="<?php $this->msg('searchbutton') ?>"<?php echo $this->skin->tooltipAndAccesskey( 'search-fulltext' ); ?> />
 			</div>
 		</form>
-		
+
 	</div> <!-- End header div -->
-	
+
 	<div id="mBody">
-	
+
 	    <!-- Dunno if this is important...? Who cares about IE5 anyways? C'mon, we got Firefox!
-	    
+
 	    <script type="<?php $this->text('jsmimetype') ?>"> if (window.isMSIE55) fixalpha(); </script> -->
-	
+
 	    <!-- NAVIGATION -->
 		<div id="side" class="noprint"> <!-- cavendish-mod / monobook: column-one -->
 			<ul id="nav">
@@ -209,7 +209,7 @@ class cavendishTemplate extends QuickTemplate {
             <h1><?php $this->data['displaytitle']!=""?$this->html('title'):$this->text('title') ?></h1>
             <h3 id="siteSub"><?php $this->msg('tagline') ?></h3>
             <div id="contentSub"><?php $this->html('subtitle') ?></div>
-            
+
             <?php if($this->data['undelete']) { ?><div id="contentSub2"><?php     $this->html('undelete') ?></div><?php } ?>
             <?php if($this->data['newtalk'] ) { ?><div class="usermessage"><?php $this->html('newtalk')  ?></div><?php } ?>
             <?php if($this->data['showjumplinks']) { ?><div id="jump-to-nav"><?php $this->msg('jumpto') ?> <a href="#column-one"><?php $this->msg('jumptonavigation') ?></a>, <a href="#searchInput"><?php $this->msg('jumptosearch') ?></a></div><?php } ?>
@@ -220,22 +220,22 @@ class cavendishTemplate extends QuickTemplate {
             <?php if($this->data['dataAfterContent']) { $this->html ('dataAfterContent'); } ?>
             <div class="visualClear"></div>
 	    </div> <!-- End mainContent div -->
-	
+
 	</div> <!-- End mBody div -->
-		
+
 	<div class="visualClear"></div>
-	
+
 	<!-- FOOTER -->
     <div id="footer">
         <?php if($this->data['poweredbyico']) { ?>
             <div id="f-poweredbyico"><?php $this->html('poweredbyico') ?></div>
-        
+
         <?php 	}
 	    if($this->data['copyrightico']) { ?>
 	        <div id="f-copyrightico"><?php $this->html('copyrightico') ?></div>
-        
+
         <?php	} ?>
-        
+
         <?php
 	    // Generate additional footer links
 	    $footerlinks = array(
@@ -244,7 +244,7 @@ class cavendishTemplate extends QuickTemplate {
 		    'privacy', 'about', 'disclaimer', 'tagline',
 	    );
 	    ?>
-	    
+
 	    <ul>
 	    <?php
 	    foreach( array('lastmod', 'viewcount') as $aLink ) {
@@ -252,7 +252,7 @@ class cavendishTemplate extends QuickTemplate {
 		        <li id="<?php echo $aLink ?>"><?php $this->html($aLink) ?></li>
         <?php } } ?>
         </ul>
-        
+
         <?php
 	    $validFooterLinks = array();
 	    foreach( $footerlinks as $aLink ) {
@@ -260,11 +260,11 @@ class cavendishTemplate extends QuickTemplate {
 			    $validFooterLinks[] = $aLink;
 		    }
 	    }
-	    
+
 	    if ( count( $validFooterLinks ) > 0 ) { ?>
 		    <ul id="f-list">
             <?php foreach( $validFooterLinks as $aLink ) {
-			    if( isset( $this->data[$aLink] ) && $this->data[$aLink] ) { ?>					
+			    if( isset( $this->data[$aLink] ) && $this->data[$aLink] ) { ?>
 			    <li id="<?php echo $aLink ?>"><?php $this->html($aLink) ?></li>
             <?php } } ?>
             <li class="noprint"><a href="http://www.mediawiki.org/wiki/Manual:Gallery_of_user_styles#Cavendish_mod">Mozilla Skin</a></li>
@@ -323,12 +323,12 @@ function searchBox() {
 		    <li id="t-recentchangeslinked"><a href="<?php echo htmlspecialchars($this->data['nav_urls']['recentchangeslinked']['href']) ?>"<?php echo $this->skin->tooltipAndAccesskey('t-recentchangeslinked') ?>><?php $this->msg('recentchangeslinked') ?></a></li>
         <?php
         } }
-        
+
 		if(isset($this->data['nav_urls']['trackbacklink'])) { ?>
 		    <li id="t-trackbacklink"><a href="<?php echo htmlspecialchars($this->data['nav_urls']['trackbacklink']['href']) ?>"<?php echo $this->skin->tooltipAndAccesskey('t-trackbacklink') ?>><?php $this->msg('trackbacklink') ?></a></li>
         <?php
         }
-        
+
 		if($this->data['feeds']) { ?>
 		    <li id="feedlinks"><?php foreach($this->data['feeds'] as $key => $feed) { ?><a id="<?php echo Sanitizer::escapeId( "feed-$key" ) ?>" href="<?php echo htmlspecialchars($feed['href']) ?>" rel="alternate" type="application/<?php echo $key ?>+xml" class="feedlink"<?php echo $this->skin->tooltipAndAccesskey('feed-'.$key) ?>><?php echo htmlspecialchars($feed['text'])?></a>&nbsp;<?php } ?></li>
 		<?php
@@ -348,14 +348,15 @@ function searchBox() {
             <li id="t-permalink"><a href="<?php echo htmlspecialchars($this->data['nav_urls']['permalink']['href'])?>"<?php echo $this->skin->tooltipAndAccesskey('t-permalink') ?>><?php $this->msg('permalink') ?></a></li>
         <?php } elseif ($this->data['nav_urls']['permalink']['href'] === '') { ?>
 			<li id="t-ispermalink"<?php echo $this->skin->tooltip('t-ispermalink') ?>><?php $this->msg('permalink') ?></li>
-		<?php
-		}
+	    <?php
+	    }
 
-        /* Don't know what this is for.. seems to work without it.
-        
-		wfRunHooks( 'MonoBookTemplateToolboxEnd', array( &$this ) );
-		wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this ) );
-		*/
+	    /* This line seems unimportant for this skin
+	    wfRunHooks( 'MonoBookTemplateToolboxEnd', array( &$this ) );
+	    */
+
+	    // This line triggers that certain extensions can add extra links to the toolbox.
+	    wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this ) );
         ?>
 	</ul>
 </li>
