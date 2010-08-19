@@ -4,8 +4,7 @@
  *
  * Loosely based on the cavendish style by Gabriel Wicke
  *
- * Modified by Serrano Pereira
- * Last update: Wed 20 Jan 2010 12:27:03 AM CET
+ * Modified 2010, Serrano Pereira <figure002@gmail.com>
  *
  * @todo document
  * @package MediaWiki
