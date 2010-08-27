@@ -45,17 +45,17 @@
 
 @font-face {
   font-family: "Droid Sans";
-  src: url("DroidSans.ttf") format("truetype");
+  src: url("droid/DroidSans.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Droid Serif";
-  src: url("DroidSerif-Regular.ttf") format("truetype");
+  src: url("droid/DroidSerif-Regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Droid Sans Mono";
-  src: url("DroidSansMono.ttf") format("truetype");
+  src: url("droid/DroidSansMono.ttf") format("truetype");
 }
 
 /* Body */
