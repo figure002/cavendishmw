@@ -124,7 +124,7 @@ li#pt-login {
 
 /* General Structure */
 body {
-    font-family: "Droid Sans", Verdana, 'Bitstream Vera Sans', 'DejaVu Sans';
+    font-family: Ubuntu, "Droid Sans", Verdana, 'Bitstream Vera Sans', 'DejaVu Sans';
     font-size: 0.75em;
     word-spacing: 1.5px;
     letter-spacing: 0.5px;
@@ -141,7 +141,7 @@ textarea {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Droid Serif", Georgia, "Times New Roman", Times;
+	font-family: Ubuntu, "Droid Serif", Georgia, "Times New Roman", Times;
 	margin: 1em 0 0.3em 0;
 }
 
