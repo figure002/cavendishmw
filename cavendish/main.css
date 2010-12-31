@@ -1,14 +1,22 @@
 /*
-** MediaWiki 'cavendish' style sheet for CSS2-capable browsers.
+** MediaWiki 'cavendish' style sheet for CSS2/3-capable browsers.
 ** Copyright Mozilla Foundation - http://www.mozilla.org/
 ** License: GPL (http://www.gnu.org/copyleft/gpl.html)
 **
 ** Loosely based on the monobook style by Gabriel Wicke
+*
+* Last modified on 2010/12/31 for Cavendish mod.
 */
 
-/* try to use custom fonts trough CSS3 (opera 10+, safari 3.1+ and ff 3.5+) */
 
-@import url("monobook.css"); /* we need you */
+/* Inherit styles from monobook */
+@import url("monobook.css");
+
+/* Try to use custom fonts trough CSS3 (opera 10+, safari 3.1+ and ff 3.5+) */
+/* Let Google provide the Ubuntu font */
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:regular,italic,bold");
+
+/* Load Cavendish specific styles */
 @import url("content.css");
 @import url("template.css");
 @import url("basetemplate.css");
