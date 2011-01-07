@@ -13,11 +13,11 @@
 		background: #455372 url("header_bl.png") bottom left repeat-x;
 		position: relative;
 		min-height: 39px;
-		height: 5em;
-		padding: 0;
 		height: 3em;
 		padding: 15px 0;
-	} #ignored {}
+	}
+
+    #ignored {}
 
 	#header h1 {
 		position: absolute;
@@ -115,32 +115,24 @@
 		white-space: nowrap; /* for Opera */
 	}
 	#header form label { color: #fff; font-size: 110%; }
-	#header form input { font-size: 85%; }
+	#header form input { font-size: 90%; }
 
     #searchform div {
         margin-top: 0;
     }
 
-	#header form #submit {
-		font-size: 85%;
-		background: #6A7389;
-		color: #fff;
-		padding: 1px 4px;
-		border-right: 1px solid #283043;
-		border-bottom: 1px solid #283043;
-		border-top: 1px solid #9097A2;
-		border-left: 1px solid #9097A2;
-	}
-
 	#header form #searchInput {
-		width: 170px;
-		font-size: 85%;
-		border:	1px solid #9097A2;
-		background: #D9DBE1;
-		padding: 2px;
+        width: 170px;
+        font-size: 90%;
+        border: 0px solid #293756;
+        background: #D9DBE1;
+        padding: 2px 3px;
+        border-radius: 3px;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
 	}
 	#header form #searchInput:hover, #header form #searchInput:focus {
-		background: #fff;
+        background: #fff;
 	}
 
 /* Sidebar */
