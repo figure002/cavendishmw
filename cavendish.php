@@ -66,9 +66,12 @@ class cavendishTemplate extends QuickTemplate {
 	 * @access private
 	 */
 	function execute() {
-		global $wgRequest;
+		global $wgRequest, $wgSitename;
 		$this->skin = $skin = $this->data['skin'];
 		$action = $wgRequest->getText( 'action' );
+
+        // retrieve site name
+        $this->set('sitename', $wgSitename);
 
 		// Suppress warnings to prevent notices about missing indexes in $this->data
 		wfSuppressWarnings();
@@ -122,7 +125,7 @@ class cavendishTemplate extends QuickTemplate {
 
 	<div id="header" class="noprint">
 		<a name="top" id="contentTop"></a>
-		<h1><a href="<?php echo htmlspecialchars($this->data['nav_urls']['mainpage']['href'])?>"<?php echo $skin->tooltipAndAccesskey('p-logo') ?>></a></h1>
+		<h1><a style="background: transparent url(<?php $this->text('logopath') ?>) no-repeat scroll 5px -5px;);" href="<?php echo htmlspecialchars($this->data['nav_urls']['mainpage']['href'])?>"<?php echo $skin->tooltipAndAccesskey('p-logo') ?>><?php $this->text('sitename'); ?></a></h1>
 
 		<ul> <!-- Start of content action buttons -->
             <?php foreach($this->data['content_actions'] as $key => $tab) {

@@ -24,18 +24,14 @@
 		top: 0;
 		left: 0;
 		margin: 0;
-		font-size: 2px;
 		background: url("header_tl.gif") no-repeat;
 		height: 8px;
 		z-index: 100; /* above the UL */
 	}
 	#header h1 a {
 		display: block;
-		width: 268px;
-		height: 64px;
-		background: transparent url("header_logo.gif") no-repeat;
-		text-indent: -700em;
-		text-decoration: none;
+		height: 58px;
+		/* background: transparent url("header_logo.gif") no-repeat; */
 	}
 	#header ul {
 		width: auto;

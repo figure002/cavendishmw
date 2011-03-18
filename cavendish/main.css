@@ -15,6 +15,7 @@
 /* Try to use custom fonts trough CSS3 (opera 10+, safari 3.1+ and ff 3.5+) */
 /* Let Google provide the Ubuntu font */
 @import url("http://fonts.googleapis.com/css?family=Ubuntu:regular,italic,bold");
+@import url("http://fonts.googleapis.com/css?family=Droid+Sans+Mono");
 
 /* Load Cavendish specific styles */
 @import url("content.css");
@@ -76,7 +77,17 @@ body {
 div#header { clear: both; }
 
 #header h1 a {
-	background: transparent url("wiki_header_logo.gif") no-repeat;
+    /*background: transparent url("wiki_header_logo.gif") no-repeat scroll 5px -5px; */
+    font-family: Ubuntu, "Trebuchet MS", Verdana, Helvetica, sans-serif;
+    color: #FFFFFF;
+    font-size: 1.7em;
+    text-shadow: 1px 1px 2px #000;
+    text-indent: 1.7em;
+    text-transform: lowercase;
+}
+
+#header h1 a:hover {
+    text-decoration: none;
 }
 
 #mozilla-org a {

@@ -43,11 +43,6 @@
    Meta
 */
 
-@font-face {
-  font-family: "Droid Sans Mono";
-  src: url("droid/DroidSansMono.ttf") format("truetype");
-}
-
 /* Body */
 
 #mainContent, #side {
@@ -87,18 +82,17 @@ input[type="submit"] {
 .errorbox, .successbox {
 	font-size: small;
 	border: 1px solid;
-	border-left: 4px solid;
 	padding: .3em 1em;
 	float: left;
 	margin-bottom: 2em;
 	color: #000;
 }
 .errorbox {
-	border-color: red;
-	background-color: #fff2f2;
+    border-color: #DF421E;
+    background-color: #fff2f2;
 }
 .successbox {
-	border-color: green;
+	border-color: #267726;
 	background-color: #dfd;
 }
 
@@ -110,6 +104,24 @@ li#pt-login {
 
 .os-suggest {
 	font-size: 100%; /* the font size for MediaWiki Suggest */
+}
+
+.errorbox, .successbox, .catlinks, .infobox, div.thumbinner, .toc,
+.fn, .navbox-title, .navbox-group, .navbox, .navbox-abovebelow,
+.noarticletext, .mbox-small, .ambox {
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+/* Change the default colors of navigation boxes */
+
+.navbox-title, table.navbox th {
+    background: none repeat scroll 0 0 #9DB8D2 !important;
+}
+
+.navbox-abovebelow, .navbox-group, .navbox-subgroup .navbox-title {
+    background: none repeat scroll 0 0 #EAE8E3 !important;
 }
 
 /* General Structure */
