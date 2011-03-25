@@ -57,6 +57,8 @@ class Skincavendish extends SkinTemplate {
  */
 class cavendishTemplate extends QuickTemplate {
 	var $skin;
+    var $show_sitename = 1; // Show sitename next to the header logo?
+
 	/**
 	 * Template filter callback for Cavendish skin.
 	 * Takes an associative array of data set from a SkinTemplate-based
@@ -125,7 +127,7 @@ class cavendishTemplate extends QuickTemplate {
 
 	<div id="header" class="noprint">
 		<a name="top" id="contentTop"></a>
-		<h1><a style="background: transparent url(<?php $this->text('logopath') ?>) no-repeat scroll 5px -5px;);" href="<?php echo htmlspecialchars($this->data['nav_urls']['mainpage']['href'])?>"<?php echo $skin->tooltipAndAccesskey('p-logo') ?>><?php $this->text('sitename'); ?></a></h1>
+		<h1><a style="background: transparent url(<?php $this->text('logopath') ?>) no-repeat scroll 5px -5px;);" href="<?php echo htmlspecialchars($this->data['nav_urls']['mainpage']['href'])?>"<?php echo $skin->tooltipAndAccesskey('p-logo') ?>><?php if ($this->show_sitename) { $this->text('sitename'); } else { print "&nbsp;"; } ?></a></h1>
 
 		<ul> <!-- Start of content action buttons -->
             <?php foreach($this->data['content_actions'] as $key => $tab) {
@@ -171,16 +173,11 @@ class cavendishTemplate extends QuickTemplate {
 	    <!-- NAVIGATION -->
 		<div id="side" class="noprint"> <!-- cavendish-mod / monobook: column-one -->
 			<ul id="nav">
-				<li><span><?php $this->msg('personaltools') ?></span>
-				    <ul>
-			            <?php foreach($this->data['personal_urls'] as $key => $item) { ?>
-                        <li id="pt-<?php echo htmlspecialchars($key) ?>"><a href="<?php echo htmlspecialchars($item['href']) ?>" <?php if(!empty($item['class'])) { ?>
-                            class="<?php echo htmlspecialchars($item['class']) ?>"<?php } ?>><?php echo htmlspecialchars($item['text']) ?></a></li>
-	                    <?php } ?>
-				    </ul>
-				</li>
-
                 <?php
+                // Display Personal Tools block.
+                $this->personalTools();
+
+                // Display other Navigation blocks.
                 $sidebar = $this->data['sidebar'];
 
                 if ( !isset( $sidebar['SEARCH'] ) ) $sidebar['SEARCH'] = true;
@@ -192,11 +189,14 @@ class cavendishTemplate extends QuickTemplate {
                         // The searchbox is disabled, because we already have one in the header.
                         // Uncomment the line below to enable it again.
                         //$this->searchBox();
-                    } elseif ( $boxName == 'TOOLBOX' ) {
+                    }
+                    elseif ( $boxName == 'TOOLBOX' ) {
                         $this->toolbox();
-                    } elseif ( $boxName == 'LANGUAGES' ) {
+                    }
+                    elseif ( $boxName == 'LANGUAGES' ) {
                         $this->languageBox();
-                    } else {
+                    }
+                    else {
                         $this->customBox( $boxName, $cont );
                     }
                 }
@@ -290,6 +290,18 @@ wfRestoreWarnings();
 } // end of execute() method
 
 /*************************************************************************************************/
+function personalTools() {
+?>
+				<li><span><?php $this->msg('personaltools') ?></span>
+				    <ul>
+			            <?php foreach($this->data['personal_urls'] as $key => $item) { ?>
+                        <li id="pt-<?php echo htmlspecialchars($key) ?>"><a href="<?php echo htmlspecialchars($item['href']) ?>" <?php if(!empty($item['class'])) { ?>
+                            class="<?php echo htmlspecialchars($item['class']) ?>"<?php } ?>><?php echo htmlspecialchars($item['text']) ?></a></li>
+	                    <?php } ?>
+				    </ul>
+				</li>
+<?php
+}
 function searchBox() {
 	global $wgUseTwoButtonsSearchForm;
 ?>
