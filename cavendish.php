@@ -269,7 +269,7 @@ class cavendishTemplate extends QuickTemplate {
 			    if( isset( $this->data[$aLink] ) && $this->data[$aLink] ) { ?>
 			    <li id="<?php echo $aLink ?>"><?php $this->html($aLink) ?></li>
             <?php } } ?>
-            <li class="noprint"><a href="http://www.mediawiki.org/wiki/Manual:Gallery_of_user_styles#Cavendish_mod">Mozilla Skin</a></li>
+            <li class="noprint"><a href="http://www.mediawiki.org/wiki/Manual:Gallery_of_user_styles#Cavendish_mod">Cavendish Mod Skin</a></li>
 		    </ul>
         <?php	} ?>
     </div> <!-- End of footer div -->
