@@ -1,14 +1,17 @@
 <?php
 /**
- * Mozilla cavendish theme
+ * Cavendish-MW - Branch of the Mozilla Cavendish MediaWiki theme which has
+ * many improvements.
  *
- * Loosely based on the cavendish style by Gabriel Wicke
+ * Loosely based on the Cavendish style by Gabriel Wicke.
  *
- * Modified 2010, Serrano Pereira <figure002@gmail.com>
+ * Modified 2011/04/19, Serrano Pereira <serrano.pereira@gmail.com>
  *
- * @todo document
- * @package MediaWiki
- * @subpackage Skins
+ * This work is licensed under the Creative Commons Attribution-ShareAlike 3.0
+ * Unported License. To view a copy of this license, visit
+ * http://creativecommons.org/licenses/by-sa/3.0/ or send a letter to Creative
+ * Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
+ *
  */
 
 if( !defined( 'MEDIAWIKI' ) )
@@ -57,7 +60,7 @@ class Skincavendish extends SkinTemplate {
  */
 class cavendishTemplate extends QuickTemplate {
 	var $skin;
-    var $show_sitename = 1; // Show sitename next to the header logo?
+    var $show_sitename = 1; // Show sitename next to the header logo? 1=true, 0=false.
 
 	/**
 	 * Template filter callback for Cavendish skin.
