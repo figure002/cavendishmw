@@ -28,6 +28,7 @@
 	}
 
 	#mainContent {
+		font-size: 120%; /* increase the font size of the content */
 		float: right;
 		width: 78%; /* default: 75% */
 		margin-bottom: 1em;
@@ -55,7 +56,7 @@
 	#header {
 	    margin-bottom: 1em;
 	}
-	
+
 	#header ul {
 		margin: 0 0 1em 0;
 		padding: 0;

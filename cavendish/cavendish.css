@@ -108,7 +108,7 @@ li#pt-login {
 
 .errorbox, .successbox, .catlinks, .infobox, div.thumbinner, .toc,
 .fn, .navbox-title, .navbox-group, .navbox, .navbox-abovebelow,
-.noarticletext, .mbox-small, .ambox {
+.noarticletext, .mbox-small {
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -126,15 +126,15 @@ li#pt-login {
 
 /* General Structure */
 body {
-    font-family: Ubuntu, "Droid Sans", Verdana, 'Bitstream Vera Sans', 'DejaVu Sans';
+    font-family: 'Droid Serif', Georgia, "Times New Roman", Times;
     font-size: 0.75em;
     word-spacing: 1.5px;
-    letter-spacing: 0.5px;
+    /*letter-spacing: 0.5px;*/
     color: #000;
 }
 
 input {
-    font-family: Ubuntu, "Droid Sans", Verdana, 'Bitstream Vera Sans', 'DejaVu Sans';
+    font-family: 'Droid Serif', Georgia, "Times New Roman", Times;
 }
 
 textarea {
@@ -143,7 +143,6 @@ textarea {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: Ubuntu, "Droid Serif", Georgia, "Times New Roman", Times;
 	margin: 1em 0 0.3em 0;
 }
 
@@ -158,9 +157,9 @@ li h1, li h2, li h3, li h4, li h5, li h6 {
 }
 
 tt, code, pre {
-	font-family: "Droid Sans Mono", monospace, sans-serif !important;
+	font-family: 'Droid Sans Mono', monospace, 'Courier New', Courier !important;
 	overflow: auto;
-	font-size: 1.0em;
+	font-size: 0.9em;
 	line-height: 1.4em;
 }
 
