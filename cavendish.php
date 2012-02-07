@@ -52,6 +52,10 @@ class Skincavendish extends SkinTemplate {
 		$out->addStyle( 'cavendish/rtl.css', 'screen', '', 'rtl' );
 		*/
 	}
+
+	// This line fixes a later bug in which $skin->tooltipAndAccesskey no longer
+	// exist and is now Xml::expandAttributes(Linker::tooltipAndAccesskeyAttribs($value)).
+	function tooltipAndAccesskey($value) { return Xml::expandAttributes(Linker::tooltipAndAccesskeyAttribs($value)); }
 }
 
 /**
