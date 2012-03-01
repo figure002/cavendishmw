@@ -177,6 +177,19 @@ ol.references
 ** This is an edited part from monobook. Removed the #bodyContent
 ** parts, because this class is not present in cavendish.
 */
+ul {
+	list-style-image: url(bullet-icon.png);
+}
+.portlet ul {
+	list-style-type: circle;
+	list-style-image: url(bullet-icon.png);
+}
+li#pt-userpage,
+li#pt-anonuserpage,
+li#pt-login {
+	background: url(user-icon.png) top left no-repeat;
+}
+
 a.external,
 a[href ^="gopher://"] {
 	background: url(external.png) center right no-repeat;
@@ -184,21 +197,21 @@ a[href ^="gopher://"] {
 }
 a[href ^="https://"],
 .link-https {
-	background: url(lock_icon.gif) center right no-repeat;
+	background: url(lock-icon.png) center right no-repeat;
 	padding-right: 16px;
 }
 a[href ^="mailto:"],
 .link-mailto {
-	background: url(mail_icon.gif) center right no-repeat;
+	background: url(mail-icon.png) center right no-repeat;
 	padding-right: 18px;
 }
 a[href ^="news://"] {
-	background: url(news_icon.png) center right no-repeat;
+	background: url(news-icon.png) center right no-repeat;
 	padding-right: 18px;
 }
 a[href ^="ftp://"],
 .link-ftp {
-	background: url(file_icon.gif) center right no-repeat;
+	background: url(file-icon.png) center right no-repeat;
 	padding-right: 18px;
 }
 a[href ^="irc://"],
@@ -214,7 +227,7 @@ a.external[href $=".mp3"], a.external[href $=".MP3"],
 a.external[href $=".wav"], a.external[href $=".WAV"],
 a.external[href $=".wma"], a.external[href $=".WMA"],
 .link-audio {
-	background: url("audio.png") center right no-repeat;
+	background: url("audio-icon.png") center right no-repeat;
 	padding-right: 13px;
 }
 a.external[href $=".ogm"], a.external[href $=".OGM"],
@@ -222,7 +235,7 @@ a.external[href $=".avi"], a.external[href $=".AVI"],
 a.external[href $=".mpeg"], a.external[href $=".MPEG"],
 a.external[href $=".mpg"], a.external[href $=".MPG"],
 .link-video {
-	background: url("video.png") center right no-repeat;
+	background: url("video-icon.png") center right no-repeat;
 	padding-right: 13px;
 }
 a.external[href $=".pdf"], a.external[href $=".PDF"],
