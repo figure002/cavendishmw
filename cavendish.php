@@ -275,7 +275,7 @@ class cavendishTemplate extends QuickTemplate {
 			    if( isset( $this->data[$aLink] ) && $this->data[$aLink] ) { ?>
 			    <li id="<?php echo $aLink ?>"><?php $this->html($aLink) ?></li>
             <?php } } ?>
-            <li class="noprint"><a href="https://sourceforge.net/p/cavendishmw/home/">Cavendish Skin</a></li>
+            <li class="noprint"><a href="https://sourceforge.net/projects/cavendishmw/">Cavendish Skin</a></li>
 		    </ul>
         <?php	} ?>
     </div> <!-- End of footer div -->
