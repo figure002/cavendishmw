@@ -22,12 +22,12 @@ if( !defined( 'MEDIAWIKI' ) )
  * @todo document
  * @ingroup Skins
  */
-class Skincavendish extends SkinTemplate {
+class SkinCavendishMW extends SkinTemplate {
 	function initPage( OutputPage $out ) {
 		parent::initPage( $out );
-		$this->skinname  = 'cavendish';
-		$this->stylename = 'cavendish';
-		$this->template  = 'cavendishTemplate';
+		$this->skinname  = 'cavendishmw';
+		$this->stylename = 'cavendishmw';
+		$this->template  = 'CavendishMWTemplate';
 
 	}
 
@@ -37,19 +37,19 @@ class Skincavendish extends SkinTemplate {
 		parent::setupSkinUserCss( $out );
 
 		// Append to the default screen common & print styles...
-		$out->addStyle( 'cavendish/main.css', 'screen' );
+		$out->addStyle( 'cavendishmw/main.css', 'screen' );
 		if( $wgHandheldStyle ) {
 			// Currently in testing... try 'chick/main.css'
 			$out->addStyle( $wgHandheldStyle, 'handheld' );
 		}
 
         /*
-		$out->addStyle( 'cavendish/IE50Fixes.css', 'screen', 'lt IE 5.5000' );
-		$out->addStyle( 'cavendish/IE55Fixes.css', 'screen', 'IE 5.5000' );
-		$out->addStyle( 'cavendish/IE60Fixes.css', 'screen', 'IE 6' );
-		$out->addStyle( 'cavendish/IE70Fixes.css', 'screen', 'IE 7' );
+		$out->addStyle( 'cavendishmw/IE50Fixes.css', 'screen', 'lt IE 5.5000' );
+		$out->addStyle( 'cavendishmw/IE55Fixes.css', 'screen', 'IE 5.5000' );
+		$out->addStyle( 'cavendishmw/IE60Fixes.css', 'screen', 'IE 6' );
+		$out->addStyle( 'cavendishmw/IE70Fixes.css', 'screen', 'IE 7' );
 
-		$out->addStyle( 'cavendish/rtl.css', 'screen', '', 'rtl' );
+		$out->addStyle( 'cavendishmw/rtl.css', 'screen', '', 'rtl' );
 		*/
 	}
 
@@ -62,7 +62,7 @@ class Skincavendish extends SkinTemplate {
  * @todo document
  * @ingroup Skins
  */
-class cavendishTemplate extends QuickTemplate {
+class CavendishMWTemplate extends QuickTemplate {
 	var $skin;
     var $show_sitename = 1; // Show sitename next to the header logo? 1=true, 0=false.
 
