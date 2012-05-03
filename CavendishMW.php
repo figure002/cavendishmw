@@ -23,13 +23,8 @@ if( !defined( 'MEDIAWIKI' ) )
  * @ingroup Skins
  */
 class SkinCavendishMW extends SkinTemplate {
-	function initPage( OutputPage $out ) {
-		parent::initPage( $out );
-		$this->skinname  = 'cavendishmw';
-		$this->stylename = 'cavendishmw';
-		$this->template  = 'CavendishMWTemplate';
-
-	}
+	var $skinname = 'cavendishmw', $stylename = 'cavendishmw',
+		$template = 'CavendishMWTemplate', $useHeadElement = true;
 
 	function setupSkinUserCss( OutputPage $out ) {
 		global $wgHandheldStyle;
@@ -38,31 +33,20 @@ class SkinCavendishMW extends SkinTemplate {
 
 		// Append to the default screen common & print styles...
 		$out->addStyle( 'cavendishmw/main.css', 'screen' );
-		if( $wgHandheldStyle ) {
-			// Currently in testing... try 'chick/main.css'
-			$out->addStyle( $wgHandheldStyle, 'handheld' );
-		}
-
-        /*
-		$out->addStyle( 'cavendishmw/IE50Fixes.css', 'screen', 'lt IE 5.5000' );
-		$out->addStyle( 'cavendishmw/IE55Fixes.css', 'screen', 'IE 5.5000' );
-		$out->addStyle( 'cavendishmw/IE60Fixes.css', 'screen', 'IE 6' );
-		$out->addStyle( 'cavendishmw/IE70Fixes.css', 'screen', 'IE 7' );
-
-		$out->addStyle( 'cavendishmw/rtl.css', 'screen', '', 'rtl' );
-		*/
 	}
 
 	// This line fixes a later bug in which $skin->tooltipAndAccesskey no longer
 	// exist and is now Xml::expandAttributes(Linker::tooltipAndAccesskeyAttribs($value)).
-	function tooltipAndAccesskey($value) { return Xml::expandAttributes(Linker::tooltipAndAccesskeyAttribs($value)); }
+	function tooltipAndAccesskey($value) {
+        return Xml::expandAttributes(Linker::tooltipAndAccesskeyAttribs($value));
+    }
 }
 
 /**
  * @todo document
  * @ingroup Skins
  */
-class CavendishMWTemplate extends QuickTemplate {
+class CavendishMWTemplate extends BaseTemplate {
 	var $skin;
     var $show_sitename = 1; // Show sitename next to the header logo? 1=true, 0=false.
 
@@ -85,48 +69,10 @@ class CavendishMWTemplate extends QuickTemplate {
 		// Suppress warnings to prevent notices about missing indexes in $this->data
 		wfSuppressWarnings();
 
-?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="<?php $this->text('xhtmldefaultnamespace') ?>" <?php
-	foreach($this->data['xhtmlnamespaces'] as $tag => $ns) {
-		?>xmlns:<?php echo "{$tag}=\"{$ns}\" ";
-	} ?>xml:lang="<?php $this->text('lang') ?>" lang="<?php $this->text('lang') ?>" dir="<?php $this->text('dir') ?>">
-	<head>
-		<meta http-equiv="Content-Type" content="<?php $this->text('mimetype') ?>; charset=<?php $this->text('charset') ?>" />
-		<?php $this->html('headlinks') ?>
-		<title><?php $this->text('pagetitle') ?></title>
-		<?php $this->html('csslinks') ?>
+        $this->html( 'headelement' );
 
-		<!--[if lt IE 7]><script type="<?php $this->text('jsmimetype') ?>" src="<?php $this->text('stylepath') ?>/common/IEFixes.js?<?php echo $GLOBALS['wgStyleVersion'] ?>"></script>
-		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
-
-
-		<script type="<?php $this->text('jsmimetype') ?>" src="<?php $this->text('stylepath' ) ?>/common/wikibits.js?<?php echo $GLOBALS['wgStyleVersion'] ?>"><!-- wikibits js --></script>
-		<!-- Head Scripts -->
-<?php $this->html('headscripts') ?>
-<?php	if($this->data['jsvarurl']) { ?>
-		<script type="<?php $this->text('jsmimetype') ?>" src="<?php $this->text('jsvarurl') ?>"><!-- site js --></script>
-<?php	} ?>
-<?php	if($this->data['pagecss']) { ?>
-		<style type="text/css"><?php $this->html('pagecss') ?></style>
-<?php	}
-		if($this->data['usercss']) { ?>
-		<style type="text/css"><?php $this->html('usercss') ?></style>
-<?php	}
-		if($this->data['userjs']) { ?>
-		<script type="<?php $this->text('jsmimetype') ?>" src="<?php $this->text('userjs' ) ?>"></script>
-<?php	}
-		if($this->data['userjsprev']) { ?>
-		<script type="<?php $this->text('jsmimetype') ?>"><?php $this->html('userjsprev') ?></script>
-<?php	}
-		if($this->data['trackbackhtml']) print $this->data['trackbackhtml']; ?>
-	</head>
-
-<body<?php if($this->data['body_ondblclick']) { ?> ondblclick="<?php $this->text('body_ondblclick') ?>"<?php } ?>
-<?php if($this->data['body_onload']) { ?> onload="<?php $this->text('body_onload') ?>"<?php } ?>
- class="mediawiki <?php $this->text('dir') ?> <?php $this->text('pageclass') ?> <?php $this->text('skinnameclass') ?>">
-
-<div id="internal"></div> <!-- cavendish-mod -->
-<div id="container"> <!-- cavendish-mod / default: globalWrapper -->
+?><div id="internal"></div> <!-- cavendish-mw -->
+<div id="container"> <!-- cavendish-mw / default: globalWrapper -->
 
     <!-- <div id="mozilla-org"><a href="/wiki/Skin:Cavendish">Mozilla Skin</a></div> -->
     <?php if($this->data['sitenotice']) { ?><div id="siteNotice"><?php $this->html('sitenotice') ?></div><?php } ?>
@@ -177,7 +123,7 @@ class CavendishMWTemplate extends QuickTemplate {
 	    <script type="<?php $this->text('jsmimetype') ?>"> if (window.isMSIE55) fixalpha(); </script> -->
 
 	    <!-- NAVIGATION -->
-		<div id="side" class="noprint"> <!-- cavendish-mod / monobook: column-one -->
+		<div id="side" class="noprint"> <!-- cavendish-mw / monobook: column-one -->
 			<ul id="nav">
                 <?php
                 // Display Personal Tools block.
@@ -211,7 +157,7 @@ class CavendishMWTemplate extends QuickTemplate {
 		</div><!-- end of SIDE div -->
 
         <!-- MAIN CONTENT -->
-	    <div id="mainContent"> <!-- cavendish-mod / monobook: column-content -->
+	    <div id="mainContent"> <!-- cavendish-mw / monobook: column-content -->
             <!-- <a name="top" id="top"></a> -->
             <!-- sitenotice was here -->
             <h1><?php $this->data['displaytitle']!=""?$this->html('title'):$this->text('title') ?></h1>
@@ -222,7 +168,7 @@ class CavendishMWTemplate extends QuickTemplate {
             <?php if($this->data['newtalk'] ) { ?><div class="usermessage"><?php $this->html('newtalk')  ?></div><?php } ?>
             <?php if($this->data['showjumplinks']) { ?><div id="jump-to-nav"><?php $this->msg('jumpto') ?> <a href="#column-one"><?php $this->msg('jumptonavigation') ?></a>, <a href="#searchInput"><?php $this->msg('jumptosearch') ?></a></div><?php } ?>
             <!-- start content -->
-            <?php $this->html('bodytext') ?>
+            <?php $this->html('bodycontent') ?>
             <?php if($this->data['catlinks']) { $this->html('catlinks'); } ?>
             <!-- end content -->
             <?php if($this->data['dataAfterContent']) { $this->html ('dataAfterContent'); } ?>
@@ -290,6 +236,7 @@ class CavendishMWTemplate extends QuickTemplate {
 
 -->
 <?php endif; ?>
+<?php $this->printTrail(); ?>
 </body></html>
 <?php
 wfRestoreWarnings();
