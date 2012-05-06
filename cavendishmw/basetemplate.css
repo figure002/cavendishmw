@@ -12,7 +12,7 @@
 	}
 
 	#container {
-		max-width: 100%; /* default: 70em; */
+		max-width: 100%; /* cevendish: 70em; */
 		margin: 0 auto;
 	}
 
@@ -23,14 +23,14 @@
 
 	#side {
 		float: left;
-		width: 20%; /* default: 23% */
+		width: 20%; /* cevendish: 23% */
 		margin-bottom: 1em;
 	}
 
 	#mainContent {
-		font-size: 120%; /* increase the font size of the content */
+		font-size: 100%;
 		float: right;
-		width: 78%; /* default: 75% */
+		width: 78%; /* cevendish: 75% */
 		margin-bottom: 1em;
 	}
 	.nomenu #mainContent {
@@ -60,7 +60,7 @@
 	#header ul {
 		margin: 0 0 1em 0;
 		padding: 0;
-		line-height: 1.5em;
+		line-height: 1.4em;
 	}
 
 	#header li {

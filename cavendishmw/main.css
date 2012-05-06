@@ -13,8 +13,7 @@
 @import url("monobook.css");
 
 /* Try to use custom fonts trough CSS3 (opera 10+, safari 3.1+ and ff 3.5+) */
-/* Let Google provide the Droid font */
-@import url("http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700");
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
 
 /* Load Cavendish specific styles */
 @import url("content.css");
@@ -59,30 +58,31 @@
 		border-bottom: 1px solid #fff;
 	}
 
-/* if you want the mozilla.org button back, look for "mozilla-org"
-in cavendish.php and uncomment that line. Also uncomment this body
-part below. -figure002 */
-
 /*
-body {
+ * If you want the mozilla.org button on the top back, look for "mozilla-org"
+ * in CavendishMW.php and uncomment that line. Also uncomment this body
+ * part below.
+ **/
+/*body {
 	background: url("subsite_back.gif") repeat-x;
 	background-color: #FFF;
 	margin-top: 0;
 	padding-top: 0;
-}
-*/
+}*/
 
 
 div#header { clear: both; }
 
 #header h1 a {
     /*background: transparent url("wiki_header_logo.gif") no-repeat scroll 5px -5px; */
-    /*font-family: Ubuntu, "Trebuchet MS", Verdana, Helvetica, sans-serif;*/
+    font-family: Ubuntu, "Trebuchet MS", Helvetica, sans-serif;
     color: #FFFFFF;
     font-size: 1.7em;
+    position: relative;
     text-shadow: 1px 1px 2px #000;
     text-indent: 1.7em;
     text-transform: lowercase;
+    top: -3px;
 }
 
 #header h1 a:hover {

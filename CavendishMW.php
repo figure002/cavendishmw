@@ -48,7 +48,6 @@ class SkinCavendishMW extends SkinTemplate {
  */
 class CavendishMWTemplate extends BaseTemplate {
 	var $skin;
-    var $show_sitename = 1; // Show sitename next to the header logo? 1=true, 0=false.
 
 	/**
 	 * Template filter callback for Cavendish skin.
@@ -59,9 +58,15 @@ class CavendishMWTemplate extends BaseTemplate {
 	 * @access private
 	 */
 	function execute() {
-		global $wgRequest, $wgSitename;
+		global $wgRequest, $wgSitename,
+            $cavendishShowSitename, $cavendishSitenameIndent;
 		$this->skin = $skin = $this->data['skin'];
 		$action = $wgRequest->getText( 'action' );
+
+        // Set cavendishmw specific variables.
+        $cavendishShowSitename = isset($cavendishShowSitename) ? $cavendishShowSitename : true;
+        $cavendishSitenameIndent = isset($cavendishSitenameIndent) ? $cavendishSitenameIndent : '2em';
+        $this->set('sitenameindent', $cavendishSitenameIndent);
 
         // retrieve site name
         $this->set('sitename', $wgSitename);
@@ -74,12 +79,12 @@ class CavendishMWTemplate extends BaseTemplate {
 ?><div id="internal"></div> <!-- cavendish-mw -->
 <div id="container"> <!-- cavendish-mw / default: globalWrapper -->
 
-    <!-- <div id="mozilla-org"><a href="/wiki/Skin:Cavendish">Mozilla Skin</a></div> -->
+    <!-- <div id="mozilla-org"><a href="https://sourceforge.net/projects/cavendishmw/">Mozilla Skin</a></div> -->
     <?php if($this->data['sitenotice']) { ?><div id="siteNotice"><?php $this->html('sitenotice') ?></div><?php } ?>
 
 	<div id="header" class="noprint">
 		<a name="top" id="contentTop"></a>
-		<h1><a style="background: transparent url(<?php $this->text('logopath') ?>) no-repeat scroll 5px -5px;);" href="<?php echo htmlspecialchars($this->data['nav_urls']['mainpage']['href'])?>"<?php echo $skin->tooltipAndAccesskey('p-logo') ?>><?php if ($this->show_sitename) { $this->text('sitename'); } else { print "&nbsp;"; } ?></a></h1>
+		<h1><a style="text-indent: <?php $this->text('sitenameindent'); ?>; background: transparent url(<?php $this->text('logopath') ?>) no-repeat scroll 5px -5px;);" href="<?php echo htmlspecialchars($this->data['nav_urls']['mainpage']['href'])?>"<?php echo $skin->tooltipAndAccesskey('p-logo') ?>><?php if ($cavendishShowSitename) { $this->text('sitename'); } else { print "&nbsp;"; } ?></a></h1>
 
 		<ul> <!-- Start of content action buttons -->
             <?php foreach($this->data['content_actions'] as $key => $tab) {
