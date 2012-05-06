@@ -1,21 +1,49 @@
 README file for Cavendish-MW
-============================
+############################
 
 
 Installation Instructions
 =========================
 
-To install the Cavendish skin, extract the files from the archive to the
+To install the Cavendish-MW skin, extract the files from the archive to the
 "skins" folder of your MediaWiki installation.
 
-In your MediaWiki Preferences page, click on the Appearance tab, select the
-skin you would like to use for your account and click Save.
+In your MediaWiki Preferences page, click on the Appearance tab. Under "Skin"
+there should be an option "CavendishMW". Select the skin you would like to use
+for your account and click Save.
 
-If you want to set the default skin to Cavendish, open LocalSettings.php
-and add/modify the $wgDefaultSkin. The name should be in lowercase,
 
-$wgDefaultSkin = 'cavendish';
+Configuration
+=============
 
-The default is,
+MediaWiki itself and the Cavendish-MW skin can be configured by editing
+LocalSettings.php in the root folder of your MediaWiki installation. Open this
+file with a text editor.
 
-$wgDefaultSkin = 'monobook';
+Set as default
+--------------
+
+If you want to set the default skin to Cavendish-MW, set the variable
+$wgDefaultSkin to 'cavendishmw'. The name should be in lowercase,
+
+$wgDefaultSkin = 'cavendishmw';
+
+
+Change the header logo
+----------------------
+
+To change the header logo, change the variable $wgLogo.
+
+
+Cavendish-MW variables
+----------------------
+
+You can use the following variables to further customize Cavendish-MW:
+
+// Set to 'true' to show the site name in the header. Set to 'false' to hide
+// the site name.
+$cavendishShowSitename = true;
+
+// Set the indentation for the site name. You may alter the value depending on
+// the size of the logo you use.
+$cavendishSitenameIndent = '2em';
