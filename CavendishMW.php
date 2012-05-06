@@ -1,11 +1,11 @@
 <?php
 /**
- * Cavendish-MW - Branch of the Mozilla Cavendish MediaWiki theme which has
- * many improvements.
+ * Cavendish-MW - Branch of the Mozilla Cavendish MediaWiki skin with some
+ * improvements.
  *
  * Loosely based on the Cavendish style by Gabriel Wicke.
  *
- * Modified 2011/04/19, Serrano Pereira <serrano.pereira@gmail.com>
+ * Modified 2012/05/07, Serrano Pereira <serrano.pereira@gmail.com>
  *
  * This work is licensed under the Creative Commons Attribution-ShareAlike 3.0
  * Unported License. To view a copy of this license, visit
