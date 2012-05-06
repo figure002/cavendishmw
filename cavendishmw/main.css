@@ -167,12 +167,6 @@ ol.references
 	text-align: justify;
 }
 
-/* make highlighted sources (<source>) bigger */
-.de1, .de2
-{
-	font: 1.2em/1.2em monospace !important;
-}
-
 /*
 ** This is an edited part from monobook. Removed the #bodyContent
 ** parts, because this class is not present in cavendish.
