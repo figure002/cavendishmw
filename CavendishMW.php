@@ -59,16 +59,21 @@ class CavendishMWTemplate extends BaseTemplate {
 	 */
 	function execute() {
 		global $wgRequest, $wgSitename,
-            $cavendishShowSitename, $cavendishSitenameIndent;
+            $cavendishShowSitename, $cavendishSitenameIndent,
+            $cavendishLogoWidth, $cavendishLogoHeight;
 		$this->skin = $skin = $this->data['skin'];
 		$action = $wgRequest->getText( 'action' );
 
         // Set cavendishmw specific variables.
         $cavendishShowSitename = isset($cavendishShowSitename) ? $cavendishShowSitename : true;
         $cavendishSitenameIndent = isset($cavendishSitenameIndent) ? $cavendishSitenameIndent : '2em';
+        $cavendishLogoWidth = isset($cavendishLogoWidth) ? $cavendishLogoWidth : 'auto';
+        $cavendishLogoHeight = isset($cavendishLogoHeight) ? $cavendishLogoHeight : 'auto';
         $this->set('sitenameindent', $cavendishSitenameIndent);
+        $this->set('logowidth', $cavendishLogoWidth);
+        $this->set('logoheight', $cavendishLogoHeight);
 
-        // retrieve site name
+        // Retrieve site name
         $this->set('sitename', $wgSitename);
 
 		// Suppress warnings to prevent notices about missing indexes in $this->data
@@ -84,7 +89,7 @@ class CavendishMWTemplate extends BaseTemplate {
 
 	<div id="header" class="noprint">
 		<a name="top" id="contentTop"></a>
-		<h1><a style="text-indent: <?php $this->text('sitenameindent'); ?>; background: transparent url(<?php $this->text('logopath') ?>) no-repeat scroll 5px -5px;);" href="<?php echo htmlspecialchars($this->data['nav_urls']['mainpage']['href'])?>"<?php echo $skin->tooltipAndAccesskey('p-logo') ?>><?php if ($cavendishShowSitename) { $this->text('sitename'); } else { print "&nbsp;"; } ?></a></h1>
+		<h1><a style="text-indent: <?php $this->text('sitenameindent'); ?>; width: <?php $this->text('logowidth'); ?>; height: <?php $this->text('logoheight'); ?>; background: transparent url(<?php $this->text('logopath') ?>) no-repeat scroll 5px -5px;);" href="<?php echo htmlspecialchars($this->data['nav_urls']['mainpage']['href'])?>"<?php echo $skin->tooltipAndAccesskey('p-logo') ?>><?php if ($cavendishShowSitename) { $this->text('sitename'); } else { print "&nbsp;"; } ?></a></h1>
 
 		<ul> <!-- Start of content action buttons -->
             <?php foreach($this->data['content_actions'] as $key => $tab) {

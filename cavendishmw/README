@@ -1,5 +1,5 @@
-README file for Cavendish-MW
-############################
+README file for Cavendish-MW 0.2
+################################
 
 This is the README file for Cavendish-MW 0.2, a skin for MediaWiki.
 
@@ -43,12 +43,20 @@ To change the header logo, change the variable $wgLogo.
 Cavendish-MW variables
 ----------------------
 
-You can use the following variables to further customize Cavendish-MW:
+You can use the following variables to further customize Cavendish-MW. The
+values shown below are the default values.
 
-// Set to 'true' to show the site name in the header. Set to 'false' to hide
-// the site name.
+// Set to 'false' to hide the site name in the header.
 $cavendishShowSitename = true;
 
-// Set the indentation for the site name. You may alter the value depending on
+// The indentation for the site name. You may alter the value depending on
 // the size of the logo you use.
 $cavendishSitenameIndent = '2em';
+
+// The width of the site name area. Set this to a fixed value if your logo
+// exeeds the width of the area.
+$cavendishLogoWidth = 'auto';
+
+// The height of the site name area. Set this to a fixed value if your logo
+// exeeds the height of the area.
+$cavendishLogoHeight = 'auto';
