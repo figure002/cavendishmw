@@ -51,24 +51,80 @@
 		width: 35%;
 	}
 
+    #mozilla-org a {
+        float: right;
+        display: block;
+        text-indent: -5000em;
+        width: 110px;
+        height: 25px;
+        text-decoration: none;
+        background: url("subsite_mozilla-org.gif") no-repeat;
+        margin-bottom: 1.5em;
+    }
+
 /* Header */
+
+    div#header {
+        clear: both;
+    }
 
 	#header {
 	    margin-bottom: 1em;
 	}
 
 	#header ul {
-		margin: 0 0 1em 0;
-		padding: 0;
+        margin: 0;
+        padding-right: 1em;
 		line-height: 1.4em;
 	}
 
 	#header li {
 		display: inline;
-		padding: 0 20px 0 0;
-		margin: 0;
+		padding: 0 6px 0 0;
+        margin-right: 0 1px 0 0;
 		white-space: nowrap;
 	}
+
+    #header ul li.selected a
+    {
+        background-position: 0% -200px;
+        color: #455372;
+    }
+
+    #header ul li.selected
+    {
+        background-position: 100% -200px;
+        border-bottom: 1px solid #fff;
+    }
+
+    /* header tabs mouseover effects */
+    #header ul li.selected:hover a
+    {
+        background-position: 0% 0%;
+        color: #333;
+    }
+
+    #header ul li.selected:hover
+    {
+        background-position: 100% 0%;
+        border-bottom: 1px solid #fff;
+    }
+
+    #header h1 a {
+        /*background: transparent url("wiki_header_logo.gif") no-repeat scroll 5px -5px; */
+        font-family: Ubuntu, "Trebuchet MS", Helvetica, sans-serif;
+        color: #FFFFFF;
+        font-size: 1.7em;
+        position: relative;
+        text-shadow: 1px 1px 2px #000;
+        text-indent: 1.7em;
+        text-transform: lowercase;
+        top: -3px;
+    }
+
+    #header h1 a:hover {
+        text-decoration: none;
+    }
 
 /* Sidebar */
 
