@@ -5,7 +5,7 @@
  *
  * Loosely based on the Cavendish style by Gabriel Wicke.
  *
- * Modified 2012/05/07, Serrano Pereira <serrano.pereira@gmail.com>
+ * Modified 2012/05/08, Serrano Pereira <serrano.pereira@gmail.com>
  *
  * This work is licensed under the Creative Commons Attribution-ShareAlike 3.0
  * Unported License. To view a copy of this license, visit
