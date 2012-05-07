@@ -8,12 +8,11 @@
 * Last modified on 2010/12/31 for Cavendish mod.
 */
 
+/* Try to use custom fonts trough CSS3 (opera 10+, safari 3.1+ and ff 3.5+) */
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
 
 /* Inherit styles from monobook */
 @import url("monobook.css");
-
-/* Try to use custom fonts trough CSS3 (opera 10+, safari 3.1+ and ff 3.5+) */
-@import url(http://fonts.googleapis.com/css?family=Ubuntu);
 
 /* Load Cavendish specific styles */
 @import url("content.css");
@@ -35,75 +34,8 @@
 
 
 /*
-** classes for special content elements like town boxes
-** intended to be referenced directly from the wiki src
-*/
-
-/*
-** Diff rendering
-*/
-table.diff { background:white; }
-td.diff-otitle { background:#ffffff; }
-td.diff-ntitle { background:#ffffff; }
-td.diff-addedline {
-    background:#ccffcc;
-    font-size: smaller;
-}
-td.diff-deletedline {
-    background:#ffffaa;
-    font-size: smaller;
-}
-td.diff-context {
-    background:#eeeeee;
-    font-size: smaller;
-}
-
-span.diffchange { color: red; font-weight: bold; }
-
-
-/*
-** Structural Elements
-*/
-
-
-/*
-** the navigation portlet
-*/
-
-#p-nav {
-    position:relative;
-    z-index:3;
-}
-
-
-/*
-** WORKAROUNDS
-*/
-
-/* navbox container style */
-.navbox p
-{
-	text-align: left !important;
-}
-
-/* make font in tables smaller */
-td, th
-{
-	font-size: 100%;
-	line-height: 1.5;
-}
-
-/* make the list of references look smaller */
-ol.references
-{
-	font-size: 90% !important; /* default: 100% */
-	text-align: justify;
-}
-
-/*
-** This is an edited part from monobook. Removed the #bodyContent
-** parts, because this class is not present in cavendish.
-*/
+ * Overwrite some styles from monobook.
+ */
 ul {
 	list-style-image: url(bullet-icon.png);
 }
