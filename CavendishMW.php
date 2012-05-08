@@ -246,7 +246,6 @@ class CavendishMWTemplate extends BaseTemplate {
 
 -->
 <?php endif; ?>
-<?php $this->printTrail(); ?>
 </body></html>
 <?php
 wfRestoreWarnings();
