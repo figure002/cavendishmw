@@ -52,3 +52,7 @@ values shown below are the default values.
     // The height of the site name area. Set this to a fixed value if your logo
     // exeeds the height of the area.
     $cavendishLogoHeight = 'auto';
+
+## License
+
+This work is licensed under the [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/).
