@@ -11,15 +11,6 @@
 /* Try to use custom fonts trough CSS3 (opera 10+, safari 3.1+ and ff 3.5+) */
 @import url(http://fonts.googleapis.com/css?family=Ubuntu);
 
-/* Inherit styles from monobook */
-@import url("monobook.css");
-
-/* Load Cavendish specific styles */
-@import url("content.css");
-@import url("template.css");
-@import url("basetemplate.css");
-@import url("cavendish.css");
-
 /*
  * If you want the mozilla.org button on the top back, look for "mozilla-org"
  * in CavendishMW.php and uncomment that line. Also uncomment this body
