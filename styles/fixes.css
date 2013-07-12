@@ -1,0 +1,12 @@
+/*
+ * MediaWiki Cavendish-MW style sheet.
+ *
+ * This stylesheet contains fixes.
+ */
+
+/*
+ * Fix for search suggestions not displaying under the search box.
+ */
+div.suggestions {
+    right: 149.533px !important;
+}

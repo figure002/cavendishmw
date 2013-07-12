@@ -75,442 +75,442 @@
 
 /* General Structure */
 
-	.subtitle {
-		font-style: italic;
-	}
+.subtitle {
+    font-style: italic;
+}
 
-	div.para {
-		margin: 1em 0;
-	}
+div.para {
+    margin: 1em 0;
+}
 
-	div.para > ul,
-	div.para > ol,
-	div.para > blockquote {
-		margin-top: 0.2em;
-		margin-bottom: 0.2em;
-	}
+div.para > ul,
+div.para > ol,
+div.para > blockquote {
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
 
-	div.section {
-		display: block;
-		padding-left: 0%;
-	}
+div.section {
+    display: block;
+    padding-left: 0%;
+}
 
-	div.section > h2,
-	div.section > h3,
-	div.section > h4,
-	div.section > h5,
-	div.section > h6 {
-		margin-left: -1.3%;
-	}
+div.section > h2,
+div.section > h3,
+div.section > h4,
+div.section > h5,
+div.section > h6 {
+    margin-left: -1.3%;
+}
 
-	.block {
-	  display: block;
-	  margin: 0.1em 1em;
-	}
+.block {
+  display: block;
+  margin: 0.1em 1em;
+}
 
-	.imgright {
-		float: right;
-		margin: 0 0 2em 2em;
-	}
+.imgright {
+    float: right;
+    margin: 0 0 2em 2em;
+}
 
-	.first {
-		margin-top: 0; /* For IE not understanding first:child */
-	}
+.first {
+    margin-top: 0; /* For IE not understanding first:child */
+}
 
 /* Navigation */
 
-	:link img,
-	:visited img {
-		border: 0;
-	}
-	.deepLevel #mainContent :link img,
-	.deepLevel #mainContent :visited img {
-		border: medium solid;
-	}
-	.deepLevel #mainContent #buttons :link img,
-	.deepLevel #mainContent #buttons :visited img {
-		border: 0;
-	}
+:link img,
+:visited img {
+    border: 0;
+}
+.deepLevel #mainContent :link img,
+.deepLevel #mainContent :visited img {
+    border: medium solid;
+}
+.deepLevel #mainContent #buttons :link img,
+.deepLevel #mainContent #buttons :visited img {
+    border: 0;
+}
 
-	.ex-ref {
-		font-style: italic;
-	}
+.ex-ref {
+    font-style: italic;
+}
 
-	dl.toc dt {
-		margin-top: 1em;
-		font-size: 110%;
-	}
-	dl.toc p {
-		margin: 0;
-		text-indent: 1em;
-	}
-	dl.toc p:first-child {
-		text-indent: 0;
-	}
-	dl.toc > dd {
-		margin-left: 1em;
-	}
+dl.toc dt {
+    margin-top: 1em;
+    font-size: 110%;
+}
+dl.toc p {
+    margin: 0;
+    text-indent: 1em;
+}
+dl.toc p:first-child {
+    text-indent: 0;
+}
+dl.toc > dd {
+    margin-left: 1em;
+}
 
-	ol.toc ol {
-		list-style-type: circle;
-	}
-	ol.toc > li > ol {
-		font-size: 90%;
-	}
+ol.toc ol {
+    list-style-type: circle;
+}
+ol.toc > li > ol {
+    font-size: 90%;
+}
 
-	ul.snav {/* section navigation or short navigation, whichever you prefer */
-		margin: 0.7em 10%;
-		padding: .2em;
-		text-align: center;
-		list-style-type: none;
-	}
-	ul.snav > li {
-		margin: 0;
-		padding: 0;
-	}
-	ul.snav > li {
-		display: inline;
-	}
-	ul.snav > li:before {
-		content: " | ";
-	}
-	ul.snav > li:first-child:before {
-		content: "";
-	}
+ul.snav {/* section navigation or short navigation, whichever you prefer */
+    margin: 0.7em 10%;
+    padding: .2em;
+    text-align: center;
+    list-style-type: none;
+}
+ul.snav > li {
+    margin: 0;
+    padding: 0;
+}
+ul.snav > li {
+    display: inline;
+}
+ul.snav > li:before {
+    content: " | ";
+}
+ul.snav > li:first-child:before {
+    content: "";
+}
 
-	a.cont {
-		display: block;
-		margin-right: 0;
-		text-align: right;
-	}
+a.cont {
+    display: block;
+    margin-right: 0;
+    text-align: right;
+}
 
 /* Quotations */
 
-	blockquote > address {
-		padding-left: 1em;
-		text-indent: -1em;
-	}
-	blockquote > address:before {
-		content: "\2015";
-	}
+blockquote > address {
+    padding-left: 1em;
+    text-indent: -1em;
+}
+blockquote > address:before {
+    content: "\2015";
+}
 
-	div.quote,
-	div.epigraph {
-		margin: 1em;
-	}
-	div.quote q,
-	div.epigraph q {
-		display: block;
-		margin: 0 .5em;
-		text-indent: -0.5em;
-	}
-	div.quote cite,
-	div.epigraph cite {
-		display: block;
-		padding: 0 1em;
-		text-align: right;
-		text-indent: -1em;
-	}
-	div.quote cite:before,
-	div.epigraph cite:before {
-		content: "\2015";
-	}
+div.quote,
+div.epigraph {
+    margin: 1em;
+}
+div.quote q,
+div.epigraph q {
+    display: block;
+    margin: 0 .5em;
+    text-indent: -0.5em;
+}
+div.quote cite,
+div.epigraph cite {
+    display: block;
+    padding: 0 1em;
+    text-align: right;
+    text-indent: -1em;
+}
+div.quote cite:before,
+div.epigraph cite:before {
+    content: "\2015";
+}
 
-	blockquote.epigraph,
-	div.epigraph q {
-		font-style: italic;
-		text-align: right;
-	}
-	blockquote.epigraph em,
-	div.epigraph q em {
-		font-style: normal;
-	}
-	blockquote.epigraph address,
-	div.epigraph cite {
-		font-style: normal;
-	}
+blockquote.epigraph,
+div.epigraph q {
+    font-style: italic;
+    text-align: right;
+}
+blockquote.epigraph em,
+div.epigraph q em {
+    font-style: normal;
+}
+blockquote.epigraph address,
+div.epigraph cite {
+    font-style: normal;
+}
 
 /* Comments and other Asides */
 
-	.note {
-		font-style: italic;
-	}
-	.note:before {
-		content: "Note: ";
-	}
+.note {
+    font-style: italic;
+}
+.note:before {
+    content: "Note: ";
+}
 
-	.remark {
-		font-size: smaller;
-	}
-	.remark:before {
-		content: "[";
-	}
-	.remark:after {
-		content: "]";
-	}
+.remark {
+    font-size: smaller;
+}
+.remark:before {
+    content: "[";
+}
+.remark:after {
+    content: "]";
+}
 
-	.sidenote {
-		clear: both;
-		margin: 0.75em 0.5em;
-		padding: 0.2em;
-		border: 1px solid;
+.sidenote {
+    clear: both;
+    margin: 0.75em 0.5em;
+    padding: 0.2em;
+    border: 1px solid;
 
-		/* Block NS4 from floating */ /*/*/
-		float: right;
-		width: 30%;
-		min-width: 15em;
-		/* */
-	}
-	/* Reduce main header sizes */
-	.sidenote h1 {font-size: 1.40em;}
-	.sidenote h2 {font-size: 1.25em;}
-	.sidenote h3 {font-size: 1.10em;}
+    /* Block NS4 from floating */ /*/*/
+    float: right;
+    width: 30%;
+    min-width: 15em;
+    /* */
+}
+/* Reduce main header sizes */
+.sidenote h1 {font-size: 1.40em;}
+.sidenote h2 {font-size: 1.25em;}
+.sidenote h3 {font-size: 1.10em;}
 
-	.key-point > h1:first-child,
-	.key-point > h2:first-child,
-	.key-point > h3:first-child,
-	.key-point > h4:first-child,
-	.key-point > h5:first-child,
-	.key-point > h6:first-child {
-		margin-top: 0;
-	}
+.key-point > h1:first-child,
+.key-point > h2:first-child,
+.key-point > h3:first-child,
+.key-point > h4:first-child,
+.key-point > h5:first-child,
+.key-point > h6:first-child {
+    margin-top: 0;
+}
 
 /* Emphasis */
 
-	/* em, strong */
+/* em, strong */
 
-	strong.stronger {
-		font-style: italic;
-		font-weight: bold;
-	}
+strong.stronger {
+    font-style: italic;
+    font-weight: bold;
+}
 
-	strong.very-strong {
-		font-weight: bold;
-		text-transform: uppercase;
-	}
+strong.very-strong {
+    font-weight: bold;
+    text-transform: uppercase;
+}
 
-	*.important,
-	div.important,
-	p.important {
-		margin: 1em;
-		padding: 0.1em;
-		border: solid #F00;
-		font-size: larger;
-	}
+*.important,
+div.important,
+p.important {
+    margin: 1em;
+    padding: 0.1em;
+    border: solid #F00;
+    font-size: larger;
+}
 
-	span.important {
-		margin: 0;
-		padding: 0;
-		border: 0;
-		font-size: smaller;
-		color: #c00;
-	}
+span.important {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: smaller;
+    color: #c00;
+}
 
 /* Computers - General */
 
-	pre.screen {
-		overflow: auto;
-		margin: 1em 0.5em;
-		padding: 0.2em;
-		border: solid 1px;
-		font-family: monospace;
-		white-space: pre;
-	}
+pre.screen {
+    overflow: auto;
+    margin: 1em 0.5em;
+    padding: 0.2em;
+    border: solid 1px;
+    font-family: monospace;
+    white-space: pre;
+}
 
-	div.screen {
-		margin: 1em .5em;
-		padding: 0.2em;
-		border: solid 1px;
-	}
+div.screen {
+    margin: 1em .5em;
+    padding: 0.2em;
+    border: solid 1px;
+}
 
-	span.application {
-		font-style: italic;
-	}
+span.application {
+    font-style: italic;
+}
 
-	kbd.long {
-		display: block;
-		margin: 0.1em 1em;
-	}
+kbd.long {
+    display: block;
+    margin: 0.1em 1em;
+}
 
-	kbd.command,
-	code.command {
-		white-space: pre;
-	}
+kbd.command,
+code.command {
+    white-space: pre;
+}
 
-	code.filename {
-		font-style: italic;
-		white-space: nowrap;
-	}
+code.filename {
+    font-style: italic;
+    white-space: nowrap;
+}
 
 /* Code */
 
-	code, pre {
-		/* override IE6 default */
-		font-size: 1em;
-	}
+code, pre {
+    /* override IE6 default */
+    font-size: 1em;
+}
 
-	code {
-		white-space: nowrap;
-	}
-	code.long {
-		display: block;
-		margin: 0.1em 1em;
-		white-space: normal;
-	}
+code {
+    white-space: nowrap;
+}
+code.long {
+    display: block;
+    margin: 0.1em 1em;
+    white-space: normal;
+}
 
-	pre.code {
-		overflow: auto;
-		margin: 1em .5em;
-		padding: .2em;
-		border: solid 1px;
-	}
+pre.code {
+    overflow: auto;
+    margin: 1em .5em;
+    padding: .2em;
+    border: solid 1px;
+}
 
-	pre.code .remark {
-		font-size: 1em;
-		font-style: italic;
-	}
+pre.code .remark {
+    font-size: 1em;
+    font-style: italic;
+}
 
-	/* turn off content generation */
-	pre.code .remark:before,
-	pre.code .remark:after,
-	pre.code .note:before {
-		content: "";
-	}
+/* turn off content generation */
+pre.code .remark:before,
+pre.code .remark:after,
+pre.code .note:before {
+    content: "";
+}
 
 
 /* Examples and Figures */
 
-	.example {
-		margin: 1em 3%;
-		padding: .25em;
-		border: solid;
-	}
-	.example:before {
-		display: block;
-		font-weight: bold;
-		content: "Example";
-	}
-	.example[title]:before {
-		content: "Example: " attr(title);
-	}
+.example {
+    margin: 1em 3%;
+    padding: .25em;
+    border: solid;
+}
+.example:before {
+    display: block;
+    font-weight: bold;
+    content: "Example";
+}
+.example[title]:before {
+    content: "Example: " attr(title);
+}
 
-	pre.bad,
-	div.bad {
-		border: dashed red 3px;
-	}
-	.bad.example:before {
-		content: "Incorrect Example";
-	}
-	.bad.example[title]:before {
-		content: "Incorrect Example: " attr(title);
-	}
+pre.bad,
+div.bad {
+    border: dashed red 3px;
+}
+.bad.example:before {
+    content: "Incorrect Example";
+}
+.bad.example[title]:before {
+    content: "Incorrect Example: " attr(title);
+}
 
-	pre.good,
-	div.good {
-		border: double lime 3px;
-	}
-	.good.example:before {
-		content: "Correct Example";
-	}
-	.good.example[title]:before {
-		content: "Correct Example: " attr(title);
-	}
+pre.good,
+div.good {
+    border: double lime 3px;
+}
+.good.example:before {
+    content: "Correct Example";
+}
+.good.example[title]:before {
+    content: "Correct Example: " attr(title);
+}
 
-	.figure,
-	.screenshot {
-		display: block;
-		margin: .75em auto;
-	}
-	object.figure object,
-	object.screenshot object,
-	object.figure img,
-	object.screenshot object {
-		display: block;
-		margin: 0 auto;
-	}
-	.screenshot[title]:after,
-	.figure[title]:after {
-		display: block;
-		margin: 0 8% .05em;
-		font-style: italic;
-		font-size: small;
-		text-align: right;
-		content: attr(title);
-	}
+.figure,
+.screenshot {
+    display: block;
+    margin: .75em auto;
+}
+object.figure object,
+object.screenshot object,
+object.figure img,
+object.screenshot object {
+    display: block;
+    margin: 0 auto;
+}
+.screenshot[title]:after,
+.figure[title]:after {
+    display: block;
+    margin: 0 8% .05em;
+    font-style: italic;
+    font-size: small;
+    text-align: right;
+    content: attr(title);
+}
 
-	.co,
-	.callout {
-		text-decoration: underline;
-	}
+.co,
+.callout {
+    text-decoration: underline;
+}
 
 /* Q and A (FAQ) */
 
-	.qandaset .question {
-		font-size: large;
-		font-weight: bold;
-	}
+.qandaset .question {
+    font-size: large;
+    font-weight: bold;
+}
 
-	.qandaset .answer {
-		margin-top: 1em;
-	}
+.qandaset .answer {
+    margin-top: 1em;
+}
 
 /* Tables */
 
-	table.data {
-		border-collapse: collapse;
-		margin: 0.5em auto;
-		border: 1px solid;
-	}
+table.data {
+    border-collapse: collapse;
+    margin: 0.5em auto;
+    border: 1px solid;
+}
 
-	table.data caption {
-		margin: 1em auto 0.2em;
-		font-size: small;
-		font-style: italic;
-		text-align: center;
-	}
+table.data caption {
+    margin: 1em auto 0.2em;
+    font-size: small;
+    font-style: italic;
+    text-align: center;
+}
 
-	table.data th,
-	table.data td {
-		padding: 0.2em;
-		border: 1px solid;
-		vertical-align: baseline;
-	}
+table.data th,
+table.data td {
+    padding: 0.2em;
+    border: 1px solid;
+    vertical-align: baseline;
+}
 
-	table.data tbody th:first-child {
-		text-align: right;
-	}
+table.data tbody th:first-child {
+    text-align: right;
+}
 
-	table.data thead th {
-		vertical-align: bottom;
-	}
+table.data thead th {
+    vertical-align: bottom;
+}
 
 /* Meta */
 
-	address {
-		text-align: right;
-	}
-	.author {
-		margin-bottom: 1em;
-		text-align: left;
-	}
+address {
+    text-align: right;
+}
+.author {
+    margin-bottom: 1em;
+    text-align: left;
+}
 
 
 /* Headers */
 
-	#mainContent > h1:first-child,
-	#mainContent > h2:first-child,
-	#mainContent > h3:first-child,
-	#mainContent > h4:first-child,
-	#mainContent > h5:first-child,
-	#mainContent > h6:first-child,
-	#side > h1:first-child,
-	#side > h2:first-child,
-	#side > h3:first-child,
-	#side > h4:first-child,
-	#side > h5:first-child,
-	#side > h6:first-child {
-		margin-top: 0;
-	}
+#mainContent > h1:first-child,
+#mainContent > h2:first-child,
+#mainContent > h3:first-child,
+#mainContent > h4:first-child,
+#mainContent > h5:first-child,
+#mainContent > h6:first-child,
+#side > h1:first-child,
+#side > h2:first-child,
+#side > h3:first-child,
+#side > h4:first-child,
+#side > h5:first-child,
+#side > h6:first-child {
+    margin-top: 0;
+}
 
 
 /* Specific to Products Pages */

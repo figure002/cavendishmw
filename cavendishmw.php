@@ -1,6 +1,7 @@
 <?php
 /**
- * Cavendish-MW skin
+ * Cavendish-MW: Branch of the Mozilla Cavendish MediaWiki skin with some
+ * improvements.
  *
  * @file
  * @ingroup Skins
@@ -26,11 +27,10 @@ $wgExtensionMessagesFiles['CavendishMW'] = dirname(__FILE__).'/CavendishMW.i18n.
 $wgResourceModules['skins.cavendishmw'] = array(
     'styles' => array(
         'cavendishmw/styles/monobook.css' => array( 'media' => 'screen' ),
-        'cavendishmw/styles/content.css' => array( 'media' => 'screen' ),
         'cavendishmw/styles/template.css' => array( 'media' => 'screen' ),
         'cavendishmw/styles/basetemplate.css' => array( 'media' => 'screen' ),
         'cavendishmw/styles/cavendish.css' => array( 'media' => 'screen' ),
-        'cavendishmw/styles/screen.css' => array( 'media' => 'screen' ),
+        'cavendishmw/styles/fixes.css' => array( 'media' => 'screen' ),
     ),
     'remoteBasePath' => &$GLOBALS['wgStylePath'],
     'localBasePath' => &$GLOBALS['wgStyleDirectory'],
