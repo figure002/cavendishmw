@@ -36,12 +36,6 @@ class SkinCavendishMW extends SkinTemplate {
         // Overwrite some styles with the cavendish stylesheets.
 		$out->addModuleStyles( 'skins.cavendishmw' );
 	}
-
-	// This line fixes a later bug in which $skin->tooltipAndAccesskey no longer
-	// exist and is now Xml::expandAttributes(Linker::tooltipAndAccesskeyAttribs($value)).
-	function tooltipAndAccesskey($value) {
-        return Xml::expandAttributes(Linker::tooltipAndAccesskeyAttribs($value));
-    }
 }
 
 /**
