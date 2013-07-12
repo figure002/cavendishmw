@@ -32,10 +32,16 @@ class SkinCavendishMW extends SkinTemplate {
 	function setupSkinUserCss( OutputPage $out ) {
 		parent::setupSkinUserCss( $out );
         // Use the monobook styles as the basis.
-        $out->addModuleStyles( 'skins.monobook' );
+        //$out->addModuleStyles( 'skins.monobook' );
         // Overwrite some styles with the cavendish stylesheets.
 		$out->addModuleStyles( 'skins.cavendishmw' );
 	}
+
+	// This line fixes a later bug in which $skin->tooltipAndAccesskey no longer
+	// exist and is now Xml::expandAttributes(Linker::tooltipAndAccesskeyAttribs($value)).
+	function tooltipAndAccesskey($value) {
+        return Xml::expandAttributes(Linker::tooltipAndAccesskeyAttribs($value));
+    }
 }
 
 /**
@@ -48,249 +54,263 @@ class CavendishMWTemplate extends BaseTemplate {
      * Outputs the entire contents of the page
      */
     public function execute() {
+		global $cavendishShowSitename, $cavendishSitenameIndent,
+            $cavendishLogoWidth, $cavendishLogoHeight;
+
         // Suppress warnings to prevent notices about missing indexes in $this->data
         wfSuppressWarnings();
 
+        // Set CavendishMW specific variables.
+        $cavendishShowSitename = isset($cavendishShowSitename) ? $cavendishShowSitename : true;
+        $cavendishSitenameIndent = isset($cavendishSitenameIndent) ? $cavendishSitenameIndent : '2em';
+        $cavendishLogoWidth = isset($cavendishLogoWidth) ? $cavendishLogoWidth : 'auto';
+        $cavendishLogoHeight = isset($cavendishLogoHeight) ? $cavendishLogoHeight : 'auto';
+        $this->set('sitenameindent', $cavendishSitenameIndent);
+        $this->set('logowidth', $cavendishLogoWidth);
+        $this->set('logoheight', $cavendishLogoHeight);
+
+        // Print the HTML head
         $this->html( 'headelement' );
 ?>
 
-<div id="globalWrapper">
-<div id="column-content"><div id="content" class="mw-body-primary" role="main">
-	<a id="top"></a>
-	<?php if($this->data['sitenotice']) { ?><div id="siteNotice"><?php $this->html('sitenotice') ?></div><?php } ?>
+<div id="container"> <!-- cavendishmw: s/globalWrapper/container/ -->
 
-	<h1 id="firstHeading" class="firstHeading" lang="<?php
-		$this->data['pageLanguage'] = $this->getSkin()->getTitle()->getPageViewLanguage()->getCode();
-		$this->html( 'pageLanguage' );
-	?>"><span dir="auto"><?php $this->html('title') ?></span></h1>
-	<div id="bodyContent" class="mw-body">
-		<div id="siteSub"><?php $this->msg('tagline') ?></div>
-		<div id="contentSub"<?php $this->html('userlangattributes') ?>><?php $this->html('subtitle') ?></div>
-<?php if($this->data['undelete']) { ?>
-		<div id="contentSub2"><?php $this->html('undelete') ?></div>
-<?php } ?><?php if($this->data['newtalk'] ) { ?>
-		<div class="usermessage"><?php $this->html('newtalk')  ?></div>
-<?php } ?><?php if($this->data['showjumplinks']) { ?>
-		<div id="jump-to-nav" class="mw-jump"><?php $this->msg('jumpto') ?> <a href="#column-one"><?php $this->msg('jumptonavigation') ?></a><?php $this->msg( 'comma-separator' ) ?><a href="#searchInput"><?php $this->msg('jumptosearch') ?></a></div>
-<?php } ?>
-		<!-- start content -->
-<?php $this->html('bodytext') ?>
-		<?php if($this->data['catlinks']) { $this->html('catlinks'); } ?>
-		<!-- end content -->
-		<?php if($this->data['dataAfterContent']) { $this->html ('dataAfterContent'); } ?>
-		<div class="visualClear"></div>
-	</div>
-</div></div>
-<div id="column-one"<?php $this->html('userlangattributes')  ?>>
-	<h2><?php $this->msg( 'navigation-heading' ) ?></h2>
-<?php $this->cactions(); ?>
-	<div class="portlet" id="p-personal" role="navigation">
-		<h3><?php $this->msg('personaltools') ?></h3>
-		<div class="pBody">
-			<ul<?php $this->html('userlangattributes') ?>>
-<?php		foreach($this->getPersonalTools() as $key => $item) { ?>
-				<?php echo $this->makeListItem($key, $item); ?>
+    <!-- <div id="mozilla-org"><a href="#">Mozilla Skin</a></div> -->
+	<div id="header" class="noprint">
+        <a name="top" id="contentTop"></a>
 
-<?php		} ?>
-			</ul>
-		</div>
-	</div>
-	<div class="portlet" id="p-logo" role="banner">
+        <!-- Logo + site name -->
+		<h1>
+            <?php
+            $contents = $cavendishShowSitename ? $this->data['sitename'] : "&nbsp;";
+            echo Html::element( 'a', array(
+                'href' => $this->data['nav_urls']['mainpage']['href'],
+                'style' => "text-indent: {$this->data['sitenameindent']}; width: {$this->data['logowidth']}; height: {$this->data['logoheight']}; background: transparent url({$this->data['logopath']}) no-repeat scroll 5px -5px;"
+            ) + Linker::tooltipAndAccesskeyAttribs('p-logo'), $contents );
+            ?>
+        </h1>
+
+		<!-- Content action buttons -->
+        <?php $this->cactions(); ?>
+
+        <!-- Search box -->
+        <?php $this->searchBox(); ?>
+	</div> <!-- End header div -->
+
+    <div id="mBody">
+        <div id="side" class="noprint" <?php $this->html('userlangattributes') ?>> <!-- cavendishmw: s/column-one/side/ -->
+            <ul id="nav">
+                <?php
+                // Display Personal tools.
+                $this->personalTools();
+                // Display other Navigation blocks.
+                $this->renderPortals( $this->data['sidebar'] );
+                ?>
+            </ul> <!-- /nav -->
+        </div> <!-- /side -->
+
+        <div id="mainContent"> <!-- cavendishmw: s/column-content/mainContent/ -->
+            <?php if($this->data['sitenotice']) { ?><div id="siteNotice"><?php $this->html('sitenotice') ?></div><?php } ?>
+
+            <h1 id="firstHeading" class="firstHeading" lang="<?php
+                $this->data['pageLanguage'] = $this->getSkin()->getTitle()->getPageViewLanguage()->getCode();
+                $this->html( 'pageLanguage' );
+            ?>"><span dir="auto"><?php $this->html('title') ?></span></h1>
+            <div id="bodyContent" class="mw-body">
+                <div id="siteSub"><?php $this->msg('tagline') ?></div>
+                <div id="contentSub"<?php $this->html('userlangattributes') ?>><?php $this->html('subtitle') ?></div>
+            <?php if($this->data['undelete']) { ?>
+                <div id="contentSub2"><?php $this->html('undelete') ?></div>
+            <?php } ?><?php if($this->data['newtalk'] ) { ?>
+                <div class="usermessage"><?php $this->html('newtalk')  ?></div>
+            <?php } ?><?php if($this->data['showjumplinks']) { ?>
+                <div id="jump-to-nav" class="mw-jump"><?php $this->msg('jumpto') ?> <a href="#column-one"><?php $this->msg('jumptonavigation') ?></a><?php $this->msg( 'comma-separator' ) ?><a href="#searchInput"><?php $this->msg('jumptosearch') ?></a></div>
+            <?php } ?>
+
+                <!-- start content -->
+                <?php $this->html('bodytext') ?>
+                <?php if($this->data['catlinks']) { $this->html('catlinks'); } ?>
+                <!-- end content -->
+
+                <?php if($this->data['dataAfterContent']) { $this->html ('dataAfterContent'); } ?>
+                <div class="visualClear"></div>
+            </div>
+        </div> <!-- /mainContent -->
+    </div> <!-- /mBody -->
+
+    <div class="visualClear"></div>
+    <?php
+        $validFooterIcons = $this->getFooterIcons( "icononly" );
+        $validFooterLinks = $this->getFooterLinks( "flat" ); // Additional footer links
+
+        if ( count( $validFooterIcons ) + count( $validFooterLinks ) > 0 ) { ?>
+    <div id="footer" role="contentinfo"<?php $this->html('userlangattributes') ?>>
+    <?php
+            $footerEnd = '</div>';
+        } else {
+            $footerEnd = '';
+        }
+        foreach ( $validFooterIcons as $blockName => $footerIcons ) { ?>
+        <div id="f-<?php echo htmlspecialchars($blockName); ?>ico">
+    <?php foreach ( $footerIcons as $icon ) { ?>
+            <?php echo $this->getSkin()->makeFooterIcon( $icon ); ?>
+
+    <?php }
+    ?>
+        </div>
+    <?php }
+
+            if ( count( $validFooterLinks ) > 0 ) {
+    ?>	<ul id="f-list">
+    <?php
+                foreach( $validFooterLinks as $aLink ) { ?>
+            <li id="<?php echo $aLink ?>"><?php $this->html($aLink) ?></li>
+    <?php
+                }
+    ?>
+        </ul>
+    <?php	}
+    echo $footerEnd;
+    ?>
+
+    </div>
 <?php
-			echo Html::element( 'a', array(
-				'href' => $this->data['nav_urls']['mainpage']['href'],
-				'style' => "background-image: url({$this->data['logopath']});" )
-				+ Linker::tooltipAndAccesskeyAttribs('p-logo') ); ?>
+        $this->printTrail();
+        echo Html::closeElement( 'body' );
+        echo Html::closeElement( 'html' );
+        wfRestoreWarnings();
+    } // end of execute() method
 
-	</div>
-<?php
-	$this->renderPortals( $this->data['sidebar'] );
+    /*************************************************************************************************/
+
+    /**
+     * @param $sidebar array
+     */
+    protected function renderPortals( $sidebar ) {
+        if ( !isset( $sidebar['SEARCH'] ) ) $sidebar['SEARCH'] = true;
+        if ( !isset( $sidebar['TOOLBOX'] ) ) $sidebar['TOOLBOX'] = true;
+        if ( !isset( $sidebar['LANGUAGES'] ) ) $sidebar['LANGUAGES'] = true;
+
+        foreach( $sidebar as $boxName => $content ) {
+            if ( $content === false )
+                continue;
+
+            if ( $boxName == 'SEARCH' ) {
+                // The searchbox is disabled, because we already have one in the header.
+                // Uncomment the line below to enable it again.
+                //$this->searchBox();
+            } elseif ( $boxName == 'TOOLBOX' ) {
+                $this->toolbox();
+            } elseif ( $boxName == 'LANGUAGES' ) {
+                $this->languageBox();
+            } else {
+                $this->customBox( $boxName, $content );
+            }
+        }
+    }
+
+    function searchBox() {
+        global $wgUseTwoButtonsSearchForm;
 ?>
-</div><!-- end of the left (by default at least) column -->
-<div class="visualClear"></div>
-<?php
-	$validFooterIcons = $this->getFooterIcons( "icononly" );
-	$validFooterLinks = $this->getFooterLinks( "flat" ); // Additional footer links
+    <form action="<?php $this->text('wgScript') ?>" id="searchform">
+        <label for="searchInput"><?php $this->msg('search') ?></label>
+        <input type='hidden' name="title" value="<?php $this->text('searchtitle') ?>"/>
+        <?php echo $this->makeSearchInput(array( "id" => "searchInput" )); ?>
 
-	if ( count( $validFooterIcons ) + count( $validFooterLinks ) > 0 ) { ?>
-<div id="footer" role="contentinfo"<?php $this->html('userlangattributes') ?>>
-<?php
-		$footerEnd = '</div>';
-	} else {
-		$footerEnd = '';
-	}
-	foreach ( $validFooterIcons as $blockName => $footerIcons ) { ?>
-	<div id="f-<?php echo htmlspecialchars($blockName); ?>ico">
-<?php foreach ( $footerIcons as $icon ) { ?>
-		<?php echo $this->getSkin()->makeFooterIcon( $icon ); ?>
+        <?php echo $this->makeSearchButton("go", array( "id" => "searchGoButton", "class" => "searchButton" ));
+        if ($wgUseTwoButtonsSearchForm): ?>&#160;
+        <?php echo $this->makeSearchButton("fulltext", array( "id" => "mw-searchButton", "class" => "searchButton" ));
+        else: ?>
 
-<?php }
+        <div><a href="<?php $this->text('searchaction') ?>" rel="search"><?php $this->msg('powersearch-legend') ?></a></div><?php
+        endif; ?>
+    </form>
+<?php
+    }
+
+    /**
+     * Prints the cactions bar.
+     * Shared between MonoBook and Modern
+     */
+    function cactions() {
 ?>
-	</div>
-<?php }
+        <ul><?php
+            foreach($this->data['content_actions'] as $key => $tab) {
+                echo '
+            ' . $this->makeListItem( $key, $tab );
+            } ?>
 
-		if ( count( $validFooterLinks ) > 0 ) {
-?>	<ul id="f-list">
+        </ul>
 <?php
-			foreach( $validFooterLinks as $aLink ) { ?>
-		<li id="<?php echo $aLink ?>"><?php $this->html($aLink) ?></li>
-<?php
-			}
+    }
+
+    function personalTools() {
 ?>
-	</ul>
-<?php	}
-echo $footerEnd;
-?>
-
-</div>
+        <li><span><?php $this->msg('personaltools') ?></span>
+            <ul<?php $this->html('userlangattributes') ?>>
+            <?php foreach($this->getPersonalTools() as $key => $item) { ?>
+                <?php echo $this->makeListItem($key, $item); ?>
+            <?php } ?>
+            </ul>
+        </li>
 <?php
-		$this->printTrail();
-		echo Html::closeElement( 'body' );
-		echo Html::closeElement( 'html' );
-		wfRestoreWarnings();
-	} // end of execute() method
-
-	/*************************************************************************************************/
-
-	/**
-	 * @param $sidebar array
-	 */
-	protected function renderPortals( $sidebar ) {
-		if ( !isset( $sidebar['SEARCH'] ) ) $sidebar['SEARCH'] = true;
-		if ( !isset( $sidebar['TOOLBOX'] ) ) $sidebar['TOOLBOX'] = true;
-		if ( !isset( $sidebar['LANGUAGES'] ) ) $sidebar['LANGUAGES'] = true;
-
-		foreach( $sidebar as $boxName => $content ) {
-			if ( $content === false )
-				continue;
-
-			if ( $boxName == 'SEARCH' ) {
-				$this->searchBox();
-			} elseif ( $boxName == 'TOOLBOX' ) {
-				$this->toolbox();
-			} elseif ( $boxName == 'LANGUAGES' ) {
-				$this->languageBox();
-			} else {
-				$this->customBox( $boxName, $content );
-			}
-		}
-	}
-
-	function searchBox() {
-		global $wgUseTwoButtonsSearchForm;
+    }
+    /*************************************************************************************************/
+    function toolbox() {
 ?>
-	<div id="p-search" class="portlet" role="search">
-		<h3><label for="searchInput"><?php $this->msg('search') ?></label></h3>
-		<div id="searchBody" class="pBody">
-			<form action="<?php $this->text('wgScript') ?>" id="searchform">
-				<input type='hidden' name="title" value="<?php $this->text('searchtitle') ?>"/>
-				<?php echo $this->makeSearchInput(array( "id" => "searchInput" )); ?>
-
-				<?php echo $this->makeSearchButton("go", array( "id" => "searchGoButton", "class" => "searchButton" ));
-				if ($wgUseTwoButtonsSearchForm): ?>&#160;
-				<?php echo $this->makeSearchButton("fulltext", array( "id" => "mw-searchButton", "class" => "searchButton" ));
-				else: ?>
-
-				<div><a href="<?php $this->text('searchaction') ?>" rel="search"><?php $this->msg('powersearch-legend') ?></a></div><?php
-				endif; ?>
-
-			</form>
-		</div>
-	</div>
+    <li><span><?php $this->msg('toolbox') ?></span>
+        <ul>
 <?php
-	}
-
-	/**
-	 * Prints the cactions bar.
-	 * Shared between MonoBook and Modern
-	 */
-	function cactions() {
-?>
-	<div id="p-cactions" class="portlet" role="navigation">
-		<h3><?php $this->msg('views') ?></h3>
-		<div class="pBody">
-			<ul><?php
-				foreach($this->data['content_actions'] as $key => $tab) {
-					echo '
-				' . $this->makeListItem( $key, $tab );
-				} ?>
-
-			</ul>
-		</div>
-	</div>
-<?php
-	}
-	/*************************************************************************************************/
-	function toolbox() {
-?>
-	<div class="portlet" id="p-tb" role="navigation">
-		<h3><?php $this->msg('toolbox') ?></h3>
-		<div class="pBody">
-			<ul>
-<?php
-		foreach ( $this->getToolbox() as $key => $tbitem ) { ?>
-				<?php echo $this->makeListItem($key, $tbitem); ?>
+        foreach ( $this->getToolbox() as $key => $tbitem ) { ?>
+                <?php echo $this->makeListItem($key, $tbitem); ?>
 
 <?php
-		}
-		wfRunHooks( 'MonoBookTemplateToolboxEnd', array( &$this ) );
-		wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this, true ) );
+        }
+        wfRunHooks( 'MonoBookTemplateToolboxEnd', array( &$this ) );
+        wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this, true ) );
 ?>
-			</ul>
-		</div>
-	</div>
+        </ul>
+    </li>
 <?php
-	}
+    }
 
-	/*************************************************************************************************/
-	function languageBox() {
-		if( $this->data['language_urls'] ) {
+    /*************************************************************************************************/
+    function languageBox() {
+        if( $this->data['language_urls'] ) {
 ?>
-	<div id="p-lang" class="portlet" role="navigation">
-		<h3<?php $this->html('userlangattributes') ?>><?php $this->msg('otherlanguages') ?></h3>
-		<div class="pBody">
-			<ul>
+    <li><span><?php $this->msg('otherlanguages') ?></span>
+        <ul>
 <?php		foreach($this->data['language_urls'] as $key => $langlink) { ?>
-				<?php echo $this->makeListItem($key, $langlink); ?>
+                <?php echo $this->makeListItem($key, $langlink); ?>
 
 <?php		} ?>
-			</ul>
-		</div>
-	</div>
+        </ul>
+    </li>
 <?php
-		}
-	}
+        }
+    }
 
-	/*************************************************************************************************/
-	/**
-	 * @param $bar string
-	 * @param $cont array|string
-	 */
-	function customBox( $bar, $cont ) {
-		$portletAttribs = array( 'class' => 'generated-sidebar portlet', 'id' => Sanitizer::escapeId( "p-$bar" ), 'role' => 'navigation' );
-		$tooltip = Linker::titleAttrib( "p-$bar" );
-		if ( $tooltip !== false ) {
-			$portletAttribs['title'] = $tooltip;
-		}
-		echo '	' . Html::openElement( 'div', $portletAttribs );
+    /*************************************************************************************************/
+    /**
+     * @param $bar string
+     * @param $cont array|string
+     */
+    function customBox( $bar, $cont ) {
 ?>
-
-		<h3><?php $msg = wfMessage( $bar ); echo htmlspecialchars( $msg->exists() ? $msg->text() : $bar ); ?></h3>
-		<div class='pBody'>
+        <li><span><?php $msg = wfMessage( $bar ); echo htmlspecialchars( $msg->exists() ? $msg->text() : $bar ); ?></span>
 <?php   if ( is_array( $cont ) ) { ?>
-			<ul>
+            <ul>
 <?php 			foreach($cont as $key => $val) { ?>
-				<?php echo $this->makeListItem($key, $val); ?>
+                <?php echo $this->makeListItem($key, $val); ?>
 
 <?php			} ?>
-			</ul>
+            </ul>
 <?php   } else {
-			# allow raw HTML block to be defined by extensions
-			print $cont;
-		}
+            # allow raw HTML block to be defined by extensions
+            print $cont;
+        }
 ?>
-		</div>
-	</div>
+        </li>
 <?php
 	}
 } // end of class

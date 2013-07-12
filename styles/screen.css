@@ -5,7 +5,6 @@
 **
 ** Loosely based on the monobook style by Gabriel Wicke
 *
-* Last modified on 2010/12/31 for Cavendish mod.
 */
 
 /* Try to use custom fonts trough CSS3 (opera 10+, safari 3.1+ and ff 3.5+) */
@@ -17,58 +16,42 @@
  * part below.
  **/
 /*body {
-	background: url("subsite_back.gif") repeat-x;
+	background: url("images/subsite_back.gif") repeat-x;
 	background-color: #FFF;
 	margin-top: 0;
 	padding-top: 0;
 }*/
 
-
 /*
  * Overwrite some styles from monobook.
  */
 ul {
-	list-style-image: url(bullet-icon.png);
+	list-style-image: url(images/bullet-icon.png);
 }
 .portlet ul {
 	list-style-type: circle;
-	list-style-image: url(bullet-icon.png);
+	list-style-image: url(images/bullet-icon.png);
 }
 li#pt-userpage,
 li#pt-anonuserpage,
 li#pt-login {
-	background: url(user-icon.png) top left no-repeat;
+	background: url(images/user-icon.png) top left no-repeat;
 }
 
-a.external,
-a[href ^="gopher://"] {
-	background: url(external.png) center right no-repeat;
-	padding-right: 13px;
-}
 a[href ^="https://"],
 .link-https {
-	background: url(lock-icon.png) center right no-repeat;
-	padding-right: 16px;
+	background-image: url(images/lock-icon.png);
 }
 a[href ^="mailto:"],
 .link-mailto {
-	background: url(mail-icon.png) center right no-repeat;
-	padding-right: 18px;
+	background-image: url(images/mail-icon.png);
 }
 a[href ^="news://"] {
-	background: url(news-icon.png) center right no-repeat;
-	padding-right: 18px;
+	background-image: url(images/news-icon.png);
 }
 a[href ^="ftp://"],
 .link-ftp {
-	background: url(file-icon.png) center right no-repeat;
-	padding-right: 18px;
-}
-a[href ^="irc://"],
-a.extiw[href ^="irc://"],
-.link-irc {
-	background: url(discussionitem_icon.gif) center right no-repeat;
-	padding-right: 18px;
+	background-image: url(images/file-icon.png);
 }
 a.external[href $=".ogg"], a.external[href $=".OGG"],
 a.external[href $=".mid"], a.external[href $=".MID"],
@@ -77,21 +60,19 @@ a.external[href $=".mp3"], a.external[href $=".MP3"],
 a.external[href $=".wav"], a.external[href $=".WAV"],
 a.external[href $=".wma"], a.external[href $=".WMA"],
 .link-audio {
-	background: url("audio-icon.png") center right no-repeat;
-	padding-right: 13px;
+	background-image: url("images/audio-icon.png");
 }
 a.external[href $=".ogm"], a.external[href $=".OGM"],
 a.external[href $=".avi"], a.external[href $=".AVI"],
 a.external[href $=".mpeg"], a.external[href $=".MPEG"],
 a.external[href $=".mpg"], a.external[href $=".MPG"],
 .link-video {
-	background: url("video-icon.png") center right no-repeat;
-	padding-right: 13px;
+	background-image: url("images/video-icon.png");
 }
-a.external[href $=".pdf"], a.external[href $=".PDF"],
-a.external[href *=".pdf#"], a.external[href *=".PDF#"],
-a.external[href *=".pdf?"], a.external[href *=".PDF?"],
-.link-document {
-	background: url("document.png") center right no-repeat;
-	padding-right: 12px;
+
+/*
+ * Fix for search suggestions not displaying right under the search box.
+ */
+div.suggestions {
+    right: 149.533px !important;
 }

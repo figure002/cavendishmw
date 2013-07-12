@@ -12,7 +12,7 @@
 	}
 
 	#container {
-		max-width: 100%; /* cevendish: 70em; */
+		max-width: 100%; /* cavendish: 70em; */
 		margin: 0 auto;
 	}
 
@@ -23,14 +23,14 @@
 
 	#side {
 		float: left;
-		width: 20%; /* cevendish: 23% */
+		width: 20%; /* cavendish: 23% */
 		margin-bottom: 1em;
 	}
 
 	#mainContent {
 		font-size: 100%;
 		float: right;
-		width: 78%; /* cevendish: 75% */
+		width: 78%; /* cavendish: 75% */
 		margin-bottom: 1em;
 	}
 	.nomenu #mainContent {
@@ -58,7 +58,7 @@
         width: 110px;
         height: 25px;
         text-decoration: none;
-        background: url("subsite_mozilla-org.gif") no-repeat;
+        background: url("images/subsite_mozilla-org.gif") no-repeat;
         margin-bottom: 1.5em;
     }
 
@@ -111,7 +111,7 @@
     }
 
     #header h1 a {
-        /*background: transparent url("wiki_header_logo.gif") no-repeat scroll 5px -5px; */
+        /*background: transparent url("images/wiki_header_logo.gif") no-repeat scroll 5px -5px; */
         font-family: Ubuntu, "Trebuchet MS", Helvetica, sans-serif;
         color: #FFFFFF;
         font-size: 1.7em;

@@ -13,6 +13,7 @@ if( !defined( 'MEDIAWIKI' ) ) die( "This is an extension to the MediaWiki packag
 $wgExtensionCredits['skin'][] = array(
         'path' => __FILE__,
         'name' => 'Cavendish-MW',
+        'version' => '0.3.0',
         'url' => "http://sourceforge.net/projects/cavendishmw/",
         'author' => array('Serrano Pereira'),
         'descriptionmsg' => 'cavendishmw-desc',
@@ -24,11 +25,12 @@ $wgExtensionMessagesFiles['CavendishMW'] = dirname(__FILE__).'/CavendishMW.i18n.
 
 $wgResourceModules['skins.cavendishmw'] = array(
     'styles' => array(
-        'cavendishmw/content.css',
-        'cavendishmw/template.css',
-        'cavendishmw/basetemplate.css',
-        'cavendishmw/cavendish.css',
-        'cavendishmw/screen.css',
+        'cavendishmw/styles/monobook.css' => array( 'media' => 'screen' ),
+        'cavendishmw/styles/content.css' => array( 'media' => 'screen' ),
+        'cavendishmw/styles/template.css' => array( 'media' => 'screen' ),
+        'cavendishmw/styles/basetemplate.css' => array( 'media' => 'screen' ),
+        'cavendishmw/styles/cavendish.css' => array( 'media' => 'screen' ),
+        'cavendishmw/styles/screen.css' => array( 'media' => 'screen' ),
     ),
     'remoteBasePath' => &$GLOBALS['wgStylePath'],
     'localBasePath' => &$GLOBALS['wgStyleDirectory'],
