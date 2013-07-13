@@ -14,7 +14,7 @@ if( !defined( 'MEDIAWIKI' ) ) die( "This is an extension to the MediaWiki packag
 $wgExtensionCredits['skin'][] = array(
     'path' => __FILE__,
     'name' => 'Cavendish-MW',
-    'version' => '0.3.0',
+    'version' => '0.3.1',
     'url' => "http://sourceforge.net/projects/cavendishmw/",
     'author' => array('Serrano Pereira'),
     'descriptionmsg' => 'cavendishmw-desc',

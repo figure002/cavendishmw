@@ -1,9 +1,9 @@
-# Cavendish-MW 0.3.0
+# Cavendish-MW 0.3.1
 
-This is the README file for Cavendish-MW 0.3.0, a skin for MediaWiki. This skin
+This is the README file for Cavendish-MW 0.3.1, a skin for MediaWiki. This skin
 is based on Mozilla's Cavendish skin for MediaWiki.
 
-Cavendish-MW 0.3.0 has been tested with MediaWiki 1.21.0. It might not work
+Cavendish-MW 0.3.1 has been tested with MediaWiki 1.21.0. It might not work
 well with other versions of MediaWiki.
 
 ## Installation Instructions
