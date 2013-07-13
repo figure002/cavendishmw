@@ -12,6 +12,6 @@ $messages = array();
  * @author Serrano Pereira
  */
 $messages['en'] = array(
-        'skinname-cavendishmw' => "Cavendish-MW",
-        'cavendishmw-desc' => "A MediaWiki skin based on Mozilla's Cavendish skin.",
+    'skinname-cavendishmw' => "Cavendish-MW",
+    'cavendishmw-desc' => "A MediaWiki skin based on Mozilla's Cavendish skin.",
 );

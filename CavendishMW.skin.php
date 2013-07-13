@@ -15,27 +15,27 @@
  */
 
 if( !defined( 'MEDIAWIKI' ) )
-	die( -1 );
+    die( -1 );
 
 /**
  * Inherit main code from SkinTemplate, set the CSS and template filter.
  * @ingroup Skins
  */
 class SkinCavendishMW extends SkinTemplate {
-	var $skinname = 'cavendishmw', $stylename = 'cavendishmw',
-		$template = 'CavendishMWTemplate', $useHeadElement = true;
+    var $skinname = 'cavendishmw', $stylename = 'cavendishmw',
+        $template = 'CavendishMWTemplate', $useHeadElement = true;
 
-	/**
-	 * Load skin and user CSS files in the correct order
-	 * @param $out OutputPage object
-	 */
-	function setupSkinUserCss( OutputPage $out ) {
-		parent::setupSkinUserCss( $out );
+    /**
+     * Load skin and user CSS files in the correct order
+     * @param $out OutputPage object
+     */
+    function setupSkinUserCss( OutputPage $out ) {
+        parent::setupSkinUserCss( $out );
         // Use the monobook styles as the basis.
         //$out->addModuleStyles( 'skins.monobook' );
-        // Overwrite some styles with the cavendish stylesheets.
-		$out->addModuleStyles( 'skins.cavendishmw' );
-	}
+        // Load the cavendish stylesheets.
+        $out->addModuleStyles( 'skins.cavendishmw' );
+    }
 }
 
 /**
@@ -48,7 +48,7 @@ class CavendishMWTemplate extends BaseTemplate {
      * Outputs the entire contents of the page
      */
     public function execute() {
-		global $cavendishShowSitename, $cavendishSitenameIndent,
+        global $cavendishShowSitename, $cavendishSitenameIndent,
             $cavendishLogoWidth, $cavendishLogoHeight;
 
         // Suppress warnings to prevent notices about missing indexes in $this->data
@@ -70,11 +70,11 @@ class CavendishMWTemplate extends BaseTemplate {
 <div id="container"> <!-- cavendishmw: s/globalWrapper/container/ -->
 
     <!-- <div id="mozilla-org"><a href="#">Mozilla Skin</a></div> -->
-	<div id="header" class="noprint">
+    <div id="header" class="noprint">
         <a name="top" id="contentTop"></a>
 
         <!-- Logo + site name -->
-		<h1>
+        <h1>
             <?php
             $contents = $cavendishShowSitename ? $this->data['sitename'] : "&nbsp;";
             echo Html::element( 'a', array(
@@ -84,12 +84,12 @@ class CavendishMWTemplate extends BaseTemplate {
             ?>
         </h1>
 
-		<!-- Content action buttons -->
+        <!-- Content action buttons -->
         <?php $this->cactions(); ?>
 
         <!-- Search box -->
         <?php $this->searchBox(); ?>
-	</div> <!-- End header div -->
+    </div> <!-- End header div -->
 
     <div id="mBody">
         <div id="side" class="noprint" <?php $this->html('userlangattributes') ?>> <!-- cavendishmw: s/column-one/side/ -->
@@ -155,7 +155,7 @@ class CavendishMWTemplate extends BaseTemplate {
     <?php }
 
             if ( count( $validFooterLinks ) > 0 ) {
-    ?>	<ul id="f-list">
+    ?>    <ul id="f-list">
     <?php
                 foreach( $validFooterLinks as $aLink ) { ?>
             <li id="<?php echo $aLink ?>"><?php $this->html($aLink) ?></li>
@@ -163,7 +163,7 @@ class CavendishMWTemplate extends BaseTemplate {
                 }
     ?>
         </ul>
-    <?php	}
+    <?php    }
     echo $footerEnd;
     ?>
 
@@ -203,6 +203,9 @@ class CavendishMWTemplate extends BaseTemplate {
         }
     }
 
+    /**
+     * Prints the search box.
+     */
     function searchBox() {
         global $wgUseTwoButtonsSearchForm;
 ?>
@@ -224,7 +227,6 @@ class CavendishMWTemplate extends BaseTemplate {
 
     /**
      * Prints the cactions bar.
-     * Shared between MonoBook and Modern
      */
     function cactions() {
 ?>
@@ -238,6 +240,9 @@ class CavendishMWTemplate extends BaseTemplate {
 <?php
     }
 
+    /**
+     * Prints the personal tools.
+     */
     function personalTools() {
 ?>
         <li><span><?php $this->msg('personaltools') ?></span>
@@ -274,10 +279,10 @@ class CavendishMWTemplate extends BaseTemplate {
 ?>
     <li><span><?php $this->msg('otherlanguages') ?></span>
         <ul>
-<?php		foreach($this->data['language_urls'] as $key => $langlink) { ?>
+<?php        foreach($this->data['language_urls'] as $key => $langlink) { ?>
                 <?php echo $this->makeListItem($key, $langlink); ?>
 
-<?php		} ?>
+<?php        } ?>
         </ul>
     </li>
 <?php
@@ -294,10 +299,10 @@ class CavendishMWTemplate extends BaseTemplate {
         <li><span><?php $msg = wfMessage( $bar ); echo htmlspecialchars( $msg->exists() ? $msg->text() : $bar ); ?></span>
 <?php   if ( is_array( $cont ) ) { ?>
             <ul>
-<?php 			foreach($cont as $key => $val) { ?>
+<?php             foreach($cont as $key => $val) { ?>
                 <?php echo $this->makeListItem($key, $val); ?>
 
-<?php			} ?>
+<?php            } ?>
             </ul>
 <?php   } else {
             # allow raw HTML block to be defined by extensions
@@ -306,5 +311,5 @@ class CavendishMWTemplate extends BaseTemplate {
 ?>
         </li>
 <?php
-	}
+    }
 } // end of class
