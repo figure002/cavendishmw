@@ -1,6 +1,11 @@
 Change notes from older releases.
 
-# Cavendish-MW 0.3.0
+## Cavendish-MW 0.3.1
+
+* Fixed the display of the non-breaking space in the header link when the site
+  name is hidden.
+
+## Cavendish-MW 0.3.0
 
 Updated for MediaWiki 1.21.0.
 
