@@ -76,11 +76,13 @@ class CavendishMWTemplate extends BaseTemplate {
         <!-- Logo + site name -->
         <h1>
             <?php
-            $contents = $cavendishShowSitename ? $this->data['sitename'] : "&nbsp;";
-            echo Html::element( 'a', array(
+            $contents = $cavendishShowSitename ? $this->data['sitename'] : "#nbsp";
+            $link = Html::element( 'a', array(
                 'href' => $this->data['nav_urls']['mainpage']['href'],
                 'style' => "text-indent: {$this->data['sitenameindent']}; width: {$this->data['logowidth']}; height: {$this->data['logoheight']}; background: transparent url({$this->data['logopath']}) no-repeat scroll 5px -5px;"
             ) + Linker::tooltipAndAccesskeyAttribs('p-logo'), $contents );
+            // Can't use &nbsp; in Html::element directly.
+            echo str_replace("#nbsp", "&nbsp;", $link);
             ?>
         </h1>
 
