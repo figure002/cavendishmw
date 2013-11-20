@@ -1,5 +1,13 @@
 Change notes from older releases.
 
+## Cavendish-MW 0.3.2
+
+* (merge 3) Small tweak for English as well as adding German translation.
+
+  The English language tweak is to adhere the MediaWiki jargon as well as to
+  i18n habits (no fullstop in description on "Special:Version"). Credits to
+  Karsten Hoffmeyer.
+
 ## Cavendish-MW 0.3.1
 
 * Fixed the display of the non-breaking space in the header link when the site
@@ -9,7 +17,9 @@ Change notes from older releases.
 
 Updated for MediaWiki 1.21.0.
 
-* The skin was rewritten from scratch by following this tutorial:
+* Rewrite of the skin.
+
+  The following tutorial was used:
   <https://www.mediawiki.org/wiki/Manual:Skinning/Tutorial>
 
   The `CavendishMWTemplate` class of CavendishMW.skin.php is based on the
