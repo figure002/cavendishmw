@@ -12,6 +12,14 @@ $messages = array();
  * @author Serrano Pereira
  */
 $messages['en'] = array(
-    'skinname-cavendishmw' => "Cavendish-MW",
-    'cavendishmw-desc' => "A MediaWiki skin based on Mozilla's Cavendish skin.",
+	'skinname-cavendishmw' => "Cavendish-MW",
+	'cavendishmw-desc' => "Provides a skin based on Mozilla's Cavendish skin",
+);
+
+/** German (Deutsch)
+* @author Kghbln
+*/
+$messages['de'] = array(
+	'skinname-cavendishmw' => 'Cavendish-MW',
+	'cavendismw-desc' => 'Stellt eine von Mozillas Benutzeroberfläche Cavendish abgeleitete Benutzeroberfläche bereit'
 );
