@@ -25,6 +25,7 @@ $wgAutoloadClasses['SkinCavendishMW'] = dirname(__FILE__).'/CavendishMW.skin.php
 $wgExtensionMessagesFiles['CavendishMW'] = dirname(__FILE__).'/CavendishMW.i18n.php';
 
 $wgResourceModules['skins.cavendishmw'] = array(
+    'position' => 'top',
     'styles' => array(
         'cavendishmw/styles/monobook.css' => array( 'media' => 'screen' ),
         'cavendishmw/styles/template.css' => array( 'media' => 'screen' ),
